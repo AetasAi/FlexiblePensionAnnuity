@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LCA Flexible Annuities — Professional Adviser Dashboard</title>
+<title>The provider Flexible Annuities — Professional Adviser Dashboard</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--navy:#0D1B3E;--navy-mid:#1C3461;--gold:#B8820A;--gold-subtle:#FFF8E6;--cream:#FAFAF7;--bg:#F2F1EE;--white:#FFFFFF;--border:#DDD9CF;--border-light:#EAE8E2;--text:#1A1A2A;--text-mid:#4A4956;--text-light:#888097;--green:#0A7050;--green-bg:#EBF7F1;--red:#B52020;--red-bg:#FDF0F0;--blue:#1C3461;--blue-bg:#EBF0FA;--amber:#92650A;--amber-bg:#FFF8E6;--fpa:#1C3461;--fpa-bg:#EBF0FA;--fla:#0A7050;--fla-bg:#EBF7F1;--r:8px;--rl:12px}
+:root{--navy:#0D1B3E;--navy-mid:#1C3461;--gold:#B8820A;--gold-subtle:#FFF8E6;--cream:#FAFAF7;--bg:#F2F1EE;--white:#FFFFFF;--border:#DDD9CF;--border-light:#EAE8E2;--text:#1A1A2A;--text-mid:#4A4956;--text-light:#hundreds of097;--green:#0A7050;--green-bg:#EBF7F1;--red:#B52020;--red-bg:#FDF0F0;--blue:#1C3461;--blue-bg:#EBF0FA;--amber:#92650A;--amber-bg:#FFF8E6;--fpa:#1C3461;--fpa-bg:#EBF0FA;--fla:#0A7050;--fla-bg:#EBF7F1;--r:8px;--rl:12px}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased}
 .header{background:var(--navy);color:white;padding:0 32px;position:sticky;top:0;z-index:100;display:flex;align-items:stretch;border-bottom:1px solid rgba(255,255,255,0.12)}
@@ -186,12 +186,57 @@ td.good{color:var(--green);font-weight:500}td.bad{color:var(--red)}
 </head>
 <body>
 
-<header class="header">
-  <div class="hbrand">
-    <div class="hlogo">L&amp;C</div>
-    <div>
-      <span class="hname">London &amp; Colonial Assurance</span>
-      <span class="hsub">Prepared by Aetas Wealth · April 2026</span>
+<!-- ═══ AETAS TOPBAR ═══ -->
+<div style="background:#F5F3EF;border-bottom:1px solid #E5E2D9;padding:14px 32px;display:flex;align-items:center;justify-content:space-between">
+  <a href="https://aetas-wealth.com" style="text-decoration:none;display:flex;align-items:baseline;gap:6px">
+    <span style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:#0D1B3E;letter-spacing:-0.01em">Aetas</span>
+    <span style="font-family:'Playfair Display',serif;font-size:20px;font-style:italic;font-weight:400;color:#B8820A">Wealth</span>
+  </a>
+  <span style="font-size:12px;color:#888097;letter-spacing:0.05em;text-transform:uppercase">Pension Legacy Planning · Adviser Guide · April 2026</span>
+</div>
+
+<!-- ═══ AETAS HERO ═══ -->
+<div style="background:#0D1B3E;padding:64px 32px 56px;position:relative;overflow:hidden">
+  <div style="position:absolute;top:0;right:0;width:480px;height:480px;border-radius:50%;background:rgba(184,130,10,0.05);transform:translate(30%,-30%);pointer-events:none"></div>
+  <div style="max-width:1200px;margin:0 auto;position:relative;z-index:1">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:24px">
+      <div style="width:40px;height:1px;background:var(--gold)"></div>
+      <span style="font-size:11px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:rgba(184,130,10,0.8)">Aetas Wealth · Adviser Reference</span>
+    </div>
+    <h1 style="font-family:'Playfair Display',serif;font-size:48px;font-weight:400;color:white;line-height:1.1;margin-bottom:14px;max-width:760px">Your pension fund is about to become<br><em style="color:#B8820A;font-style:italic">significantly more expensive</em> to pass on.</h1>
+    <p style="font-size:17px;color:rgba(255,255,255,0.68);max-width:640px;line-height:1.8;margin-bottom:44px">From April 2027, unused DC pension funds enter the IHT estate. For clients over 75, the combined charge can reach 67%. There is a structured solution that eliminates both taxes — available now.</p>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:28px;max-width:680px">
+      <div>
+        <div style="font-family:'Playfair Display',serif;font-size:30px;color:white;font-weight:500;line-height:1">67%</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.45);margin-top:4px">Max combined tax without planning</div>
+      </div>
+      <div>
+        <div style="font-family:'Playfair Display',serif;font-size:30px;color:white;font-weight:500;line-height:1">£0</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.45);margin-top:4px">Tax after 2 years with the solution</div>
+      </div>
+      <div>
+        <div style="font-family:'Playfair Display',serif;font-size:30px;color:white;font-weight:500;line-height:1">100%</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.45);margin-top:4px">BPR claim success rate to date</div>
+      </div>
+      <div>
+        <div style="font-family:'Playfair Display',serif;font-size:30px;color:white;font-weight:500;line-height:1">Day 1</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.45);margin-top:4px">Income tax saving begins immediately</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ URGENCY BAR ═══ -->
+<div style="background:#FFF8E6;border-bottom:1px solid rgba(184,130,10,0.35);padding:10px 32px;font-size:13px;color:#92650A">
+  <strong>Finance Act 2026 · Royal Assent 20 March 2026.</strong>&nbsp; Pension IHT takes effect April 2027. Clients over 75 can eliminate income tax on death benefits immediately — and start the 2-year BPR clock now.
+</div>
+
+<!-- ═══ STICKY NAV (tabs) ═══ -->
+<header class="header" style="top:0">
+  <div class="hbrand" style="border-right:1px solid rgba(255,255,255,0.12)">
+    <div style="display:flex;align-items:baseline;gap:5px">
+      <span style="font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:white">Aetas</span>
+      <span style="font-family:'Playfair Display',serif;font-size:16px;font-style:italic;color:#B8820A">Wealth</span>
     </div>
   </div>
   <nav class="nav">
@@ -202,26 +247,25 @@ td.good{color:var(--green);font-weight:500}td.bad{color:var(--red)}
     <button class="ntab" onclick="showTab('cases',this)"><span class="tdot"></span>Case Studies</button>
     <button class="ntab" onclick="showTab('costs',this)"><span class="tdot"></span>Costs &amp; Benefits</button>
     <button class="ntab" onclick="showTab('faqs',this)"><span class="tdot"></span>FAQs</button>
+    <div style="width:1px;background:rgba(255,255,255,0.12);margin:10px 8px;flex-shrink:0"></div>
+    <a class="ntab" href="flexible-pension-annuity.html" style="color:rgba(255,255,255,0.55);gap:5px;text-decoration:none">FPA Deep Dive ↗</a>
+    <a class="ntab" href="flexible-life-annuity.html" style="color:rgba(255,255,255,0.55);gap:5px;text-decoration:none">FLA Deep Dive ↗</a>
   </nav>
 </header>
-
-<div class="urgency">
-  <strong>Finance Act 2026 · Royal Assent 20 March 2026.</strong>&nbsp; Pension IHT takes effect April 2027. Clients over 75 can eliminate income tax on death benefits immediately — and start the 2-year BPR clock now.
-</div>
 
 <main class="main">
 
 <!-- ═══════════ OVERVIEW ═══════════ -->
 <section id="tab-overview" class="section active">
-  <span class="stag">Professional Adviser Guide · For adviser use only</span>
-  <h1 class="stitle">London &amp; Colonial Flexible Annuities</h1>
-  <p class="sintro">A specialist structured annuity provider operating since 2001 — offering two distinct products capable of substantially mitigating, and in many cases eliminating, the combined IHT and income tax charge on pension death benefits from April 2027.</p>
+  <span class="stag">— Aetas Wealth · Pension Legacy Planning · For adviser use only</span>
+  <h1 class="stitle">The Double Whammy Solution</h1>
+  <p class="sintro">A structured approach to eliminating the combined IHT and income tax charge on DC pension death benefits — using two specialist FCA-regulated annuity products available now, ahead of the April 2027 Finance Act 2026 changes.</p>
 
   <div class="statsbar">
-    <div class="statcell"><span class="statv">2001</span><span class="statl">Established</span></div>
-    <div class="statcell"><span class="statv">£210m+</span><span class="statl">Assets under administration</span></div>
-    <div class="statcell"><span class="statv">888</span><span class="statl">Annuities in force (Sep 2024)</span></div>
-    <div class="statcell"><span class="statv">100%</span><span class="statl">BPR claim success rate</span></div>
+    <div class="statcell"><span class="statv">April 2027</span><span class="statl">Finance Act 2026 takes effect</span></div>
+    <div class="statcell"><span class="statv">67%</span><span class="statl">Max combined tax (IHT + income tax)</span></div>
+    <div class="statcell"><span class="statv">100%</span><span class="statl">BPR claim success rate to date</span></div>
+    <div class="statcell"><span class="statv">Day 1</span><span class="statl">Income tax saving begins immediately</span></div>
     <div class="statcell"><span class="statv">100%</span><span class="statl">FSCS protection · no cap</span></div>
   </div>
 
@@ -244,6 +288,9 @@ td.good{color:var(--green);font-weight:500}td.bad{color:var(--red)}
         <div class="ms"><span class="msv">2% / £10k cap</span><span class="msl">Set-up fee</span></div>
         <div class="ms"><span class="msv">1% / £1,600 cap</span><span class="msl">AMC per annum</span></div>
       </div>
+      <a href="flexible-pension-annuity.html" style="display:flex;align-items:center;justify-content:center;gap:7px;margin-top:16px;padding:11px 16px;background:var(--fpa);color:white;border-radius:var(--r);font-size:13px;font-weight:500;text-decoration:none;letter-spacing:0.01em">
+        Full FPA Product Guide &nbsp;↗
+      </a>
     </div>
     <div class="pcard fla">
       <span class="pbadge fla">FLA · Life Annuity</span>
@@ -263,6 +310,9 @@ td.good{color:var(--green);font-weight:500}td.bad{color:var(--red)}
         <div class="ms"><span class="msv">5.67% pa</span><span class="msl">TES example @ age 65</span></div>
         <div class="ms"><span class="msv">9.19% pa</span><span class="msl">TES example @ age 75</span></div>
       </div>
+      <a href="flexible-life-annuity.html" style="display:flex;align-items:center;justify-content:center;gap:7px;margin-top:16px;padding:11px 16px;background:var(--fla);color:white;border-radius:var(--r);font-size:13px;font-weight:500;text-decoration:none;letter-spacing:0.01em">
+        Full FLA Product Guide &nbsp;↗
+      </a>
     </div>
   </div>
 
@@ -295,8 +345,8 @@ td.good{color:var(--green);font-weight:500}td.bad{color:var(--red)}
   <div class="tgrid">
     <div class="tcard">
       <span style="font-size:22px;margin-bottom:10px;display:block">🏛️</span>
-      <span class="tv">FCA Reg. 20763</span>
-      <span class="tl">UK FCA authorised insurer since 2001. Dual-regulated with Gibraltar FSC (No. 5191).</span>
+      <span class="tv">FCA Reg. FCA-authorised insurer</span>
+      <span class="tl">UK FCA authorised insurer since 2001. Dual-regulated with Gibraltar FSC (No. Gibraltar FSC authorised).</span>
     </div>
     <div class="tcard">
       <span style="font-size:22px;margin-bottom:10px;display:block">🛡️</span>
@@ -327,8 +377,8 @@ td.good{color:var(--green);font-weight:500}td.bad{color:var(--red)}
     <div class="mgrid">
       <div>
         <div class="mh">Stage 1 — Immediate (from day one)</div>
-        <div class="mi"><div class="mnum">1</div><div class="mt">Client transfers pension fund to LCA. Assets invested in a <strong>legally ring-fenced Protected Cell</strong>, held in their name alone — not pooled with any other client.</div></div>
-        <div class="mi"><div class="mnum">2</div><div class="mt">Client purchases a <strong>Preference Share</strong> (typically £300–£1,200) in the LCA Protected Cell Company — effectively becoming their own insurer.</div></div>
+        <div class="mi"><div class="mnum">1</div><div class="mt">Client transfers pension fund to the provider. Assets invested in a <strong>legally ring-fenced Protected Cell</strong>, held in their name alone — not pooled with any other client.</div></div>
+        <div class="mi"><div class="mnum">2</div><div class="mt">Client purchases a <strong>Preference Share</strong> (typically £300–£1,200) in the The provider Protected Cell Company — effectively becoming their own insurer.</div></div>
         <div class="mi"><div class="mnum">3</div><div class="mt">On death: annuity ceases. Residual Cell value passes to Preference Shareholder — <strong>free of income tax and CGT</strong>. Immediate saving of ~45% of the pension fund.</div></div>
       </div>
       <div>
@@ -371,7 +421,7 @@ td.good{color:var(--green);font-weight:500}td.bad{color:var(--red)}
             <tr><td>Preference Share</td><td>£300–£1,200</td><td>One-off</td></tr>
           </table>
         </div>
-        <div class="nb"><strong>Cost context:</strong> LCA makes no mortality profit, hence explicit fees. For a £500k fund after 2 years: total charges ~£27,300. Benefit: beneficiaries receive £472,700 vs £165,000 — a saving of £307,700. Life assurance equivalent: £7,000–£13,500pa in premiums (£23–45k over 2 years before tax grossing-up).</div>
+        <div class="nb"><strong>Cost context:</strong> The provider makes no mortality profit, hence explicit fees. For a £500k fund after 2 years: total charges ~£27,300. Benefit: beneficiaries receive £472,700 vs £165,000 — a saving of £307,700. Life assurance equivalent: £7,000–£13,500pa in premiums (£23–45k over 2 years before tax grossing-up).</div>
       </div>
       <div class="fc">
         <div class="fct">Additional Planning Opportunities</div>
@@ -417,8 +467,8 @@ td.good{color:var(--green);font-weight:500}td.bad{color:var(--red)}
     <div class="twrap" style="margin-bottom:0;border-radius:var(--r)">
       <table class="dt">
         <tr><th>Layer</th><th>Detail</th></tr>
-        <tr><td><strong>FCA Regulation</strong></td><td>LCA is FCA-authorised (Ref: 20763). The FPA is an FCA-regulated unit-linked specialist annuity.</td></tr>
-        <tr><td><strong>Gibraltar FSC</strong></td><td>Dual-regulated by GFSC (Permission No. 5191) — Gibraltar's equivalent of the FCA.</td></tr>
+        <tr><td><strong>FCA Regulation</strong></td><td>The provider is FCA-authorised. The FPA is an FCA-regulated unit-linked specialist annuity.</td></tr>
+        <tr><td><strong>Gibraltar FSC</strong></td><td>Dual-regulated by Gibraltar Financial Services Commission — Gibraltar's equivalent of the FCA.</td></tr>
         <tr><td><strong>FSCS Protection</strong></td><td>100% protection, no cap, under 'protected contracts of insurance' provisions.</td></tr>
         <tr><td><strong>PCC Cell Structure</strong></td><td>Each annuity backed by its own legally ring-fenced Cell under Gibraltar's Protected Cell Companies Act 2001. Cell assets are statutorily segregated — cannot be used for any other Cell or the company itself.</td></tr>
         <tr><td><strong>HMRC &amp; IHT</strong></td><td>Over 250 HMRC claims processed. Not one refused. BPR: s105(1)(bb) IHTA 1984 — unlisted shares in a profit-making insurance company. Confirmed by Threesixty Services LLP (Luke Tribe, Research Manager).</td></tr>
@@ -456,7 +506,7 @@ td.good{color:var(--green);font-weight:500}td.bad{color:var(--red)}
     <div class="tesc"><span class="tesr">7.13%</span><span class="tesl">pa tax-free</span></div>
     <div class="tesc"><span class="tesr">9.19%</span><span class="tesl">pa tax-free</span></div>
   </div>
-  <p style="font-size:12px;color:var(--text-light);margin-bottom:24px">Indicative rates from LCA Technical Team (October 2025, per £100,000). Additional rates: age 68 ≈ 6.4% pa, age 72 ≈ 7.7% pa, age 77 ≈ 10% pa. TES recalculates upward on any top-up. Adviser charges taken from taxable element — TES wholly intact.</p>
+  <p style="font-size:12px;color:var(--text-light);margin-bottom:24px">Indicative rates from the provider's technical team (October 2025, per £100,000). Additional rates: age 68 ≈ 6.4% pa, age 72 ≈ 7.7% pa, age 77 ≈ 10% pa. TES recalculates upward on any top-up. Adviser charges taken from taxable element — TES wholly intact.</p>
 
   <div class="fc">
     <div class="fct">FLA vs Onshore Investment Bond — Direct Comparison</div>
@@ -510,9 +560,9 @@ td.good{color:var(--green);font-weight:500}td.bad{color:var(--red)}
     <div class="twrap" style="margin-bottom:0;border-radius:var(--r)">
       <table class="dt">
         <tr><th>Element</th><th>Detail</th></tr>
-        <tr><td><strong>FCA &amp; GFSC</strong></td><td>Same dual regulation as FPA — FCA Ref 20763 and GFSC Permission No. 5191.</td></tr>
+        <tr><td><strong>FCA &amp; GFSC</strong></td><td>Same dual regulation as FPA — FCA Ref FCA-authorised insurer and Gibraltar FSC authorised.</td></tr>
         <tr><td><strong>FSCS</strong></td><td>100% protection, no cap, under 'protected contracts of insurance'.</td></tr>
-        <tr><td><strong>TES Tax Status</strong></td><td>Governed by ITTOIA 2005 rules on purchased life annuities. HMRC has confirmed tax-free status of TES on LCA products. Adviser charges deducted from taxable element — TES wholly intact.</td></tr>
+        <tr><td><strong>TES Tax Status</strong></td><td>Governed by ITTOIA 2005 rules on purchased life annuities. HMRC has confirmed tax-free status of TES on these products. Adviser charges deducted from taxable element — TES wholly intact.</td></tr>
         <tr><td><strong>Death — no income tax</strong></td><td>No surrender value means no chargeable event or income tax on death — unlike onshore or offshore bonds.</td></tr>
         <tr><td><strong>BPR (Pref Share)</strong></td><td>100% BPR after 2+ years (up to £2.5m); 50% above. Unused £2.5m allowance transferable to surviving spouse or civil partner.</td></tr>
       </table>
@@ -524,14 +574,14 @@ td.good{color:var(--green);font-weight:500}td.bad{color:var(--red)}
 <section id="tab-how" class="section">
   <span class="stag">Structural Explanation</span>
   <h1 class="stitle">How It Works</h1>
-  <p class="sintro">The LCA structure is unique because the client becomes, in effect, their own insurer. The Protected Cell Company structure — Gibraltar legislation, not available in the UK — provides a legally ring-fenced cell for each annuitant, with residual value captured via a Preference Share rather than the insurer.</p>
+  <p class="sintro">The The provider structure is unique because the client becomes, in effect, their own insurer. The Protected Cell Company structure — Gibraltar legislation, not available in the UK — provides a legally ring-fenced cell for each annuitant, with residual value captured via a Preference Share rather than the insurer.</p>
 
   <div class="fwrap">
     <div style="font-size:12px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-light);margin-bottom:4px">The FPA / FLA Journey</div>
     <div style="font-size:14px;color:var(--text-mid)">From pension fund to protected legacy — five stages</div>
     <div class="fsteps">
       <div class="fstep"><div class="fcirc">1</div><div class="flbl"><strong>Client Fund</strong>Crystallised DC pension or non-pension capital</div></div>
-      <div class="fstep"><div class="fcirc">2</div><div class="flbl"><strong>LCA Purchase</strong>Transfer via ORIGO. FPA or FLA annuity established. Preference Share purchased.</div></div>
+      <div class="fstep"><div class="fcirc">2</div><div class="flbl"><strong>The provider Purchase</strong>Transfer via ORIGO. FPA or FLA annuity established. Preference Share purchased.</div></div>
       <div class="fstep"><div class="fcirc">3</div><div class="flbl"><strong>Protected Cell</strong>Assets ring-fenced in client's own Cell. Invested in standard funds or DIM mandate.</div></div>
       <div class="fstep"><div class="fcirc">4</div><div class="flbl"><strong>Flexible Income</strong>Client draws income (PAYE on FPA; TES + taxable on FLA). Pause or flex at will.</div></div>
       <div class="fstep"><div class="fcirc gold">5</div><div class="flbl"><strong>On Death</strong>Annuity ceases. Residual Cell value → Preference Share → beneficiaries. No income tax. After 2 yrs: no IHT.</div></div>
@@ -562,19 +612,19 @@ td.good{color:var(--green);font-weight:500}td.bad{color:var(--red)}
   </div>
 
   <div class="fc">
-    <div class="fct">LCA Regulatory &amp; Structural Credentials</div>
+    <div class="fct">The provider Regulatory &amp; Structural Credentials</div>
     <div class="twrap" style="margin-bottom:0;border-radius:var(--r)">
       <table class="dt">
         <tr><th>Credential</th><th>Detail</th></tr>
         <tr><td>Established</td><td>2001 — over two decades of operation through multiple regulatory changes</td></tr>
-        <tr><td>Ownership</td><td>Acquired by Global Pensions Corporation end 2024; product range expanded to include Later Life Annuity (LTC) and Trust Investment Bond</td></tr>
-        <tr><td>FCA</td><td>Authorised insurer, Ref No. 20763</td></tr>
-        <tr><td>GFSC</td><td>Permission No. 5191 — dual regulated</td></tr>
+        <tr><td>Ownership</td><td>Acquired by a specialist financial group end 2024; product range expanded to include Later Life Annuity (LTC) and Trust Investment Bond</td></tr>
+        <tr><td>FCA</td><td>Authorised insurer, FCA-authorised</td></tr>
+        <tr><td>GFSC</td><td>Gibraltar FSC authorised — dual regulated</td></tr>
         <tr><td>FSCS</td><td>100% policyholder protection, no cap, 'protected contracts of insurance'</td></tr>
         <tr><td>ORIGO</td><td>On the main UK pension transfer platform; straightforward transfers from mainstream providers</td></tr>
         <tr><td>AUA</td><td>In excess of £210 million</td></tr>
-        <tr><td>Annuities in force</td><td>888 (as at September 2024)</td></tr>
-        <tr><td>Financial soundness</td><td>Own funds £12.2m vs SCR £4.8m (December 2023, ~2.5x coverage). Audited by Grant Thornton Gibraltar.</td></tr>
+        <tr><td>Annuities in force</td><td>hundreds of (as at September 2024)</td></tr>
+        <tr><td>Financial soundness</td><td>Own funds well in excess of SCR (December 2023, ~2.5x coverage). Audited by a leading independent auditor.</td></tr>
         <tr><td>BPR track record</td><td>Several hundred death claims past 2-year mark. Not one BPR claim refused by HMRC.</td></tr>
         <tr><td>Independent research</td><td>Threesixty Services LLP confirmed BPR qualifying conditions (Luke Tribe, Research Manager). Full memo available.</td></tr>
         <tr><td>Gibraltar sovereignty</td><td>UK-EU agreement confirmed British sovereignty June 2025; draft Treaty Agreement March 2026</td></tr>
@@ -587,7 +637,7 @@ td.good{color:var(--green);font-weight:500}td.bad{color:var(--red)}
 <section id="tab-cases" class="section">
   <span class="stag">Planning Examples · Illustrative only</span>
   <h1 class="stitle">Client Case Studies</h1>
-  <p class="sintro">Eight illustrative planning examples showing how the FPA and FLA address different client circumstances. Click any case to expand. All figures are illustrative; personalised illustrations available from LCA on request. Advice is required in all cases.</p>
+  <p class="sintro">Eight illustrative planning examples showing how the FPA and FLA address different client circumstances. Click any case to expand. All figures are illustrative; personalised illustrations available from The provider on request. Advice is required in all cases.</p>
 
   <div class="cgrid">
 
@@ -756,8 +806,8 @@ td.good{color:var(--green);font-weight:500}td.bad{color:var(--red)}
           <div class="pr"><span class="plbl">Concern</span><span>Alan wants pension to pass to his children (prior marriage), not through Helen's estate</span></div>
         </div>
         <div class="csth">The Structure</div>
-        <div class="or"><span>TFC (25% = £250,000) → LCA FLA (Helen, age 70). TES 7.13% = £17,825 pa tax-free</span><span class="ov g">£17,825 pa tax-free</span></div>
-        <div class="or"><span>£750,000 → LCA FPA (Alan, age 73). £40,000 pa income (PAYE). Pref Share → children via will.</span><span class="ov g">Drawdown continues</span></div>
+        <div class="or"><span>TFC (25% = £250,000) → The provider FLA (Helen, age 70). TES 7.13% = £17,825 pa tax-free</span><span class="ov g">£17,825 pa tax-free</span></div>
+        <div class="or"><span>£750,000 → The provider FPA (Alan, age 73). £40,000 pa income (PAYE). Pref Share → children via will.</span><span class="ov g">Drawdown continues</span></div>
         <div class="or"><span>FPA: IHT saved on £750k after 2 yrs (100% BPR)</span><span class="ov g">£300,000</span></div>
         <div class="or"><span>FPA: income tax saved on Pref Share death benefit</span><span class="ov g">~£202,500</span></div>
         <div class="or"><span>FLA: IHT saved on £250k after 2 yrs (100% BPR)</span><span class="ov g">£100,000</span></div>
@@ -791,7 +841,7 @@ td.good{color:var(--green);font-weight:500}td.bad{color:var(--red)}
 <section id="tab-costs" class="section">
   <span class="stag">Illustrative Analysis</span>
   <h1 class="stitle">Costs &amp; Benefits</h1>
-  <p class="sintro">Illustrative outcomes for a £500,000 residual pension fund, client over 75, no investment growth assumed. All costs included: 2% establishment fee capped at £10,000; 1% AMC capped at £1,600pa; £12,500 adviser fee. Personalised illustrations available from LCA on request.</p>
+  <p class="sintro">Illustrative outcomes for a £500,000 residual pension fund, client over 75, no investment growth assumed. All costs included: 2% establishment fee capped at £10,000; 1% AMC capped at £1,600pa; £12,500 adviser fee. Personalised illustrations available from The provider on request.</p>
 
   <div class="csgrid">
     <div class="cs">
@@ -864,14 +914,14 @@ td.good{color:var(--green);font-weight:500}td.bad{color:var(--red)}
     <div class="inc"><span class="inl">Finance Act 2026</span><div class="inh">April 2027 — Confirmed in Law</div><div class="int">Royal Assent 20 March 2026. All DC pension funds enter the IHT estate for non-spouse beneficiaries. No further Parliamentary opportunity to reverse before the deadline.</div></div>
     <div class="inc"><span class="inl">The Tax at Stake</span><div class="inh">Up to 67% — or Higher</div><div class="int">40% IHT on the full fund, then up to 45% income tax on the residual. Combined effective rate of 67% for over-75 clients. Extreme scenarios can reach 80%.</div></div>
     <div class="inc"><span class="inl">Priority Clients</span><div class="inh">Over 75 — Act Immediately</div><div class="int">Income tax saving applies from day one. Over-75 clients should be contacted urgently. Under-75 clients should start the BPR clock before April 2027 wherever possible.</div></div>
-    <div class="inc"><span class="inl">Gibraltar Security</span><div class="inh">Sovereignty Confirmed 2025–26</div><div class="int">UK-EU agreement June 2025 confirmed British sovereignty. Draft Treaty Agreement March 2026. FSCS 100% protection. Own funds £12.2m vs SCR £4.8m.</div></div>
+    <div class="inc"><span class="inl">Gibraltar Security</span><div class="inh">Sovereignty Confirmed 2025–26</div><div class="int">UK-EU agreement June 2025 confirmed British sovereignty. Draft Treaty Agreement March 2026. FSCS 100% protection. Own funds well in excess of SCR.</div></div>
   </div>
 
   <div class="acts">
     <div class="act"><span class="actn">01</span><div class="actt">Identify Priority Clients</div><div class="actb">Flag all clients over 75 with DC pension balances. Then clients 55–75 with no spousal exemption or planning to leave pensions to children.</div></div>
-    <div class="act"><span class="actn">02</span><div class="actt">Request Personalised Illustration</div><div class="actb">Contact Aetas Wealth or LCA directly for a costs/benefits analysis tailored to the client's fund size, age and beneficiary position.</div></div>
+    <div class="act"><span class="actn">02</span><div class="actt">Request Personalised Illustration</div><div class="actb">Contact Aetas Wealth or us directlyly for a costs/benefits analysis tailored to the client's fund size, age and beneficiary position.</div></div>
     <div class="act"><span class="actn">03</span><div class="actt">Review the Documents</div><div class="actb">Adviser Guide, Case Studies, Product Summary and Threesixty Services LLP research memo all available. Independent tax opinion: Fusion Partners (~£1,500 + VAT).</div></div>
-    <div class="act"><span class="actn">04</span><div class="actt">Transfer via ORIGO</div><div class="actb">LCA is on the ORIGO platform. Transfers from mainstream UK pension providers are straightforward. In-specie transfers possible. Allow adequate time before April 2027.</div></div>
+    <div class="act"><span class="actn">04</span><div class="actt">Transfer via ORIGO</div><div class="actb">The provider is on the ORIGO platform. Transfers from mainstream UK pension providers are straightforward. In-specie transfers possible. Allow adequate time before April 2027.</div></div>
   </div>
 </section>
 
@@ -884,7 +934,7 @@ td.good{color:var(--green);font-weight:500}td.bad{color:var(--red)}
   <div class="fqs">
     <div class="fqi">
       <div class="fqq" onclick="toggleFaq(this)">What exactly is a Protected Cell Company, and why is Gibraltar used?<span class="fqch">∨</span></div>
-      <div class="fqa">A PCC is a single legal entity with multiple legally separate cells. Crucially, assets of one cell are statutorily segregated and cannot be used to meet liabilities of another cell or the company itself — this is what makes the LCA structure work.<br><br>The UK has no PCC legislation. Gibraltar does — it was the first EU territory to adopt it (Protected Cell Companies Act 2001). Gibraltar is a UK Overseas Territory with close regulatory ties to HMRC and the FCA. Around 20% of UK motor insurance (including Admiral Insurance) is written by similar PCC structures.<br><br>In June 2025 the UK and EU confirmed Gibraltar remains under British sovereignty; a draft Treaty Agreement was formalised in March 2026.</div>
+      <div class="fqa">A PCC is a single legal entity with multiple legally separate cells. Crucially, assets of one cell are statutorily segregated and cannot be used to meet liabilities of another cell or the company itself — this is what makes the The provider structure work.<br><br>The UK has no PCC legislation. Gibraltar does — it was the first EU territory to adopt it (Protected Cell Companies Act 2001). Gibraltar is a UK Overseas Territory with close regulatory ties to HMRC and the FCA. Around 20% of UK motor insurance (including Admiral Insurance) is written by similar PCC structures.<br><br>In June 2025 the UK and EU confirmed Gibraltar remains under British sovereignty; a draft Treaty Agreement was formalised in March 2026.</div>
     </div>
     <div class="fqi">
       <div class="fqq" onclick="toggleFaq(this)">How does the FPA differ from standard pension drawdown?<span class="fqch">∨</span></div>
@@ -892,7 +942,7 @@ td.good{color:var(--green);font-weight:500}td.bad{color:var(--red)}
     </div>
     <div class="fqi">
       <div class="fqq" onclick="toggleFaq(this)">What is the legal basis for Business Property Relief on the Preference Share?<span class="fqch">∨</span></div>
-      <div class="fqa">The BPR qualifying conditions are confirmed by Threesixty Services LLP (Luke Tribe, Research Manager). The four conditions per s105(1)(bb) IHTA 1984:<br><br>1. Shares are not listed on a recognised stock exchange — the Preference Share is unquoted. ✓<br>2. As a matter of Gibraltar law, the insurer has all characteristics of a company (body corporate with share capital, single legal personality). ✓<br>3. The insurer carries on a life assurance or annuity business on a commercial basis with a view to profit. ✓<br>4. Shares held by the deceased for at least two years prior to death. ✓<br><br>LCA has processed over 250 HMRC claims. Not one BPR claim has been refused past the 2-year mark. Independent tax advice from Fusion Partners (~£1,500 + VAT).</div>
+      <div class="fqa">The BPR qualifying conditions are confirmed by Threesixty Services LLP (Luke Tribe, Research Manager). The four conditions per s105(1)(bb) IHTA 1984:<br><br>1. Shares are not listed on a recognised stock exchange — the Preference Share is unquoted. ✓<br>2. As a matter of Gibraltar law, the insurer has all characteristics of a company (body corporate with share capital, single legal personality). ✓<br>3. The insurer carries on a life assurance or annuity business on a commercial basis with a view to profit. ✓<br>4. Shares held by the deceased for at least two years prior to death. ✓<br><br>The provider has processed over 250 HMRC death claims. Not one BPR claim has been refused past the 2-year mark. Independent tax advice from Fusion Partners (~£1,500 + VAT).</div>
     </div>
     <div class="fqi">
       <div class="fqq" onclick="toggleFaq(this)">What happens if BPR fails?<span class="fqch">∨</span></div>
@@ -900,7 +950,7 @@ td.good{color:var(--green);font-weight:500}td.bad{color:var(--red)}
     </div>
     <div class="fqi">
       <div class="fqq" onclick="toggleFaq(this)">How does the FPA compare with AIM IHT portfolios?<span class="fqch">∨</span></div>
-      <div class="fqa">Both use Business Property Relief after a 2-year holding period. Key differences:<br><br><strong>Income:</strong> The FPA provides flexible income for life (drawdown-equivalent). AIM portfolios are primarily growth vehicles.<br><br><strong>Income tax on death:</strong> The Preference Share passes residual value free of income tax. AIM portfolio holdings inherited by beneficiaries and then drawn from don't have this income tax elimination.<br><br><strong>Volatility:</strong> AIM is a high-volatility equity market. The FPA invests in standard funds, bonds, cash — at the client's risk preference.<br><br><strong>Regulation:</strong> FPA is FCA-regulated and FSCS-covered (100%, no cap). AIM portfolios vary.<br><br>As Threesixty Services LLP noted: the LCA structure "is aimed at clients looking for IHT benefits but who do not have the risk appetite for BPR or AIM IHT portfolios."</div>
+      <div class="fqa">Both use Business Property Relief after a 2-year holding period. Key differences:<br><br><strong>Income:</strong> The FPA provides flexible income for life (drawdown-equivalent). AIM portfolios are primarily growth vehicles.<br><br><strong>Income tax on death:</strong> The Preference Share passes residual value free of income tax. AIM portfolio holdings inherited by beneficiaries and then drawn from don't have this income tax elimination.<br><br><strong>Volatility:</strong> AIM is a high-volatility equity market. The FPA invests in standard funds, bonds, cash — at the client's risk preference.<br><br><strong>Regulation:</strong> FPA is FCA-regulated and FSCS-covered (100%, no cap). AIM portfolios vary.<br><br>As Threesixty Services LLP noted: the The provider structure "is aimed at clients looking for IHT benefits but who do not have the risk appetite for BPR or AIM IHT portfolios."</div>
     </div>
     <div class="fqi">
       <div class="fqq" onclick="toggleFaq(this)">What investments can be held in the FPA / FLA?<span class="fqch">∨</span></div>
@@ -908,15 +958,15 @@ td.good{color:var(--green);font-weight:500}td.bad{color:var(--red)}
     </div>
     <div class="fqi">
       <div class="fqq" onclick="toggleFaq(this)">Are the costs cost-effective?<span class="fqch">∨</span></div>
-      <div class="fqa">LCA makes no mortality profit on the annuity (unlike a conventional annuity where the insurer retains residual value on death). Charges are therefore explicit:<br><br>• Establishment fee: 2% capped at £10,000<br>• Annual management: 1% pa capped at £1,600 pa<br>• Preference Share: £300–£1,200 one-off<br><br>For a £500k fund with all costs (including £12,500 adviser fee), total cost over 2 years is ~£27,300. The benefit after 2 years: beneficiaries receive £472,700 vs £165,000 — a saving of £307,700.<br><br>Life assurance equivalent: ~£7,000–£13,500 pa in premiums (~£23–45k over 2 years, before tax grossing-up). The FPA is typically substantially more cost-effective for this planning objective.</div>
+      <div class="fqa">The provider makes no mortality profit on the annuity (unlike a conventional annuity where the insurer retains residual value on death). Charges are therefore explicit:<br><br>• Establishment fee: 2% capped at £10,000<br>• Annual management: 1% pa capped at £1,600 pa<br>• Preference Share: £300–£1,200 one-off<br><br>For a £500k fund with all costs (including £12,500 adviser fee), total cost over 2 years is ~£27,300. The benefit after 2 years: beneficiaries receive £472,700 vs £165,000 — a saving of £307,700.<br><br>Life assurance equivalent: ~£7,000–£13,500 pa in premiums (~£23–45k over 2 years, before tax grossing-up). The FPA is typically substantially more cost-effective for this planning objective.</div>
     </div>
     <div class="fqi">
       <div class="fqq" onclick="toggleFaq(this)">What is the TES, and how is it different from a bond's 5% allowance?<span class="fqch">∨</span></div>
-      <div class="fqa">The Tax-Exempt Sum (TES) is a statutory concept for purchased life annuities under ITTOIA 2005. HMRC has confirmed its application to LCA products. It represents the return-of-capital element of each payment — and is <strong>permanently tax-free for life</strong>.<br><br>The bond's 5% allowance is tax-deferred — not tax-free. Gains are eventually taxable on surrender, excess event or death. The allowance also expires after 20 years.<br><br>Key advantages of TES over the bond allowance:<br>• Permanent — no end date. Bond allowance expires at year 20.<br>• Genuine exemption — bond allowance is deferral only.<br>• Charges don't erode TES — on FLA, charges come from the taxable element. On a bond, they reduce the 5%.<br>• TES rises with age and rolls forward if unused. Bond allowance does not.</div>
+      <div class="fqa">The Tax-Exempt Sum (TES) is a statutory concept for purchased life annuities under ITTOIA 2005. HMRC has confirmed its application to these products. It represents the return-of-capital element of each payment — and is <strong>permanently tax-free for life</strong>.<br><br>The bond's 5% allowance is tax-deferred — not tax-free. Gains are eventually taxable on surrender, excess event or death. The allowance also expires after 20 years.<br><br>Key advantages of TES over the bond allowance:<br>• Permanent — no end date. Bond allowance expires at year 20.<br>• Genuine exemption — bond allowance is deferral only.<br>• Charges don't erode TES — on FLA, charges come from the taxable element. On a bond, they reduce the 5%.<br>• TES rises with age and rolls forward if unused. Bond allowance does not.</div>
     </div>
     <div class="fqi">
-      <div class="fqq" onclick="toggleFaq(this)">How financially sound is London &amp; Colonial Assurance?<span class="fqch">∨</span></div>
-      <div class="fqa">LCA has operated since 2001. Key financial indicators (December 2023, audited by Grant Thornton Gibraltar):<br>• Own funds: £12.2m<br>• Solvency Capital Requirement (SCR): £4.8m<br>• Coverage ratio: ~2.5x SCR<br><br>Acquired by Global Pensions Corporation end 2024; expanded product range.<br><br>All LCA products are FSCS 'protected contracts of insurance' — 100% policyholder protection, no cap, in the event of LCA being unable to meet its obligations. The PCC structure means each annuitant's Cell assets are statutorily ring-fenced even in the event of company-level difficulty.</div>
+      <div class="fqq" onclick="toggleFaq(this)">How financially sound is our specialist annuity provider?<span class="fqch">∨</span></div>
+      <div class="fqa">Established 2001, operating for over two decades. Key financial indicators (December 2023, audited by a leading independent auditor):<br>• Own funds: £12.2m<br>• Solvency Capital Requirement (SCR): £4.8m<br>• Coverage ratio: ~2.5x SCR<br><br>Acquired by a specialist financial group end 2024; expanded product range.<br><br>All these products are FSCS 'protected contracts of insurance' — 100% policyholder protection, no cap, in the event of The provider being unable to meet its obligations. The PCC structure means each annuitant's Cell assets are statutorily ring-fenced even in the event of company-level difficulty.</div>
     </div>
     <div class="fqi">
       <div class="fqq" onclick="toggleFaq(this)">How does the adviser charge interact with the TES?<span class="fqch">∨</span></div>
@@ -925,16 +975,16 @@ td.good{color:var(--green);font-weight:500}td.bad{color:var(--red)}
   </div>
 
   <div class="ins">
-    <div class="inc"><span class="inl">Next Steps</span><div class="inh">Request a Personalised Analysis</div><div class="int">Aetas Wealth can provide a tailored costs/benefits analysis for specific client situations. All headline figures are illustrative until a personalised illustration is produced by LCA.</div></div>
+    <div class="inc"><span class="inl">Next Steps</span><div class="inh">Request a Personalised Analysis</div><div class="int">Aetas Wealth can provide a tailored costs/benefits analysis for specific client situations. All headline figures are illustrative until a personalised illustration is produced by the provider.</div></div>
     <div class="inc"><span class="inl">Independent Tax Advice</span><div class="inh">Fusion Partners — ~£1,500 + VAT</div><div class="int">Third-party independent tax opinion available from Fusion Partners for clients wanting additional comfort. More complex cases by prior agreement.</div></div>
     <div class="inc"><span class="inl">Research Support</span><div class="inh">Threesixty Services LLP</div><div class="int">Independent research confirming BPR qualifying conditions. Full memo available on request. Research Manager: Luke Tribe — threesixtyservices.co.uk, 03707 360 360.</div></div>
-    <div class="inc"><span class="inl">Contact</span><div class="inh">Get in Touch</div><div class="int">Peter Rose APFS, Chartered Financial Planner<br>peter.rose@aetas-wealth.com<br><br>LCA enquiries: LCA@stmgroup.online<br>lcalife.co.uk</div></div>
+    <div class="inc"><span class="inl">Contact</span><div class="inh">Get in Touch</div><div class="int">Peter Rose APFS, Chartered Financial Planner<br>peter.rose@aetas-wealth.com<br><br>The provider enquiries: peter.rose@aetas-wealth.com<br>aetas-wealth.com</div></div>
   </div>
 
   <div class="disc">
     <p><strong>For professional adviser use only. Not for client distribution.</strong></p>
     <p style="margin-top:8px">This document has been prepared by Aetas Wealth, a trading style of Insight Financial Associates Ltd, authorised and regulated by the Financial Conduct Authority under registration number 458421. Company No. 05054886. Registered office: Insight House, 7a Alkmaar Way, Norwich International Business Park, Norwich NR6 6BF.</p>
-    <p style="margin-top:8px">London &amp; Colonial Assurance PCC Plc is authorised by the FCA (Ref: 20763) and the Gibraltar Financial Services Commission (Permission No. 5191). All products are 'protected contracts of insurance' under FSCS with 100% policyholder protection and no cap.</p>
+    <p style="margin-top:8px">our specialist annuity provider is authorised by the FCA-authorised and the Gibraltar Financial Services Commission (Gibraltar FSC authorised). All products are 'protected contracts of insurance' under FSCS with 100% policyholder protection and no cap.</p>
     <p style="margin-top:8px">All case studies and figures are illustrative only, based on indicative TES rates and tax assumptions as at April 2026. Actual outcomes depend on client-specific circumstances, investment performance, longevity, future tax legislation and BPR claim outcomes. Past BPR claim success cannot guarantee future outcomes. A personalised illustration and individual financial advice are required before any recommendation is made. This document does not constitute financial, tax or legal advice. Prepared April 2026.</p>
   </div>
 </section>
