@@ -126,6 +126,95 @@ td.g{color:var(--green);font-weight:500}td.r{color:var(--red)}
 .calc-row{display:grid;grid-template-columns:1fr 1fr 1fr;padding:11px 20px;border-bottom:1px solid var(--border-light);font-size:13px;color:var(--text-mid)}
 .calc-row span:not(:first-child){text-align:right}
 .calc-row:hover{background:var(--cream)}
+
+/* ── MOBILE ── */
+@media(max-width:768px){
+  /* Nav */
+  .header{flex-wrap:wrap;min-height:auto;padding:0 16px;gap:0}
+  .hbrand{padding:14px 0;margin-right:auto}
+  .htagline{display:none}
+  .nav{order:3;width:100%;border-top:1px solid var(--border-light);padding:0}
+  .ntab{padding:0 10px;font-size:12px;height:42px}
+  .header > a[href*="booking"]{display:none}
+
+  /* Main padding */
+  .main{padding:20px 16px}
+
+  /* All 2/3/4 col grids → 1 col */
+  .g2,.g3,.g4,.bignums,.suit-grid,.case-grid,.csgrid{grid-template-columns:1fr !important}
+
+  /* Action steps → 2 col on mobile */
+  .acts{grid-template-columns:1fr 1fr !important}
+
+  /* Timeline → vertical */
+  .timeline{flex-direction:column}
+  .tl-item+.tl-item{border-left:none;border-top:1px solid var(--border-light)}
+
+  /* Comparison → stack */
+  .comp{grid-template-columns:1fr !important}
+  .comp-arrow{display:none}
+
+  /* Mechanism box → 1 col */
+  .mbox-grid{grid-template-columns:1fr !important}
+
+  /* Flow → 2 col grid, hide line */
+  .flow{grid-template-columns:1fr 1fr !important;row-gap:20px}
+  .flow::before{display:none}
+
+  /* Case studies → 1 col */
+  .case-grid{grid-template-columns:1fr !important}
+
+  /* Hero — override inline grid */
+  div[style*="grid-template-columns:1fr 340px"]{grid-template-columns:1fr !important}
+  div[style*="grid-template-columns:1fr 340px"] > div:last-child{display:none}
+
+  /* Hero buttons — stack */
+  div[style*="display:flex;gap:12px"]{flex-direction:column;align-items:flex-start}
+
+  /* Hero heading */
+  h1[style*="font-size:46px"]{font-size:28px !important}
+
+  /* Calculator — override inline grid */
+  div[style*="grid-template-columns:380px 1fr"]{grid-template-columns:1fr !important}
+  div[style*="position:sticky;top:108px"]{position:static !important}
+
+  /* Calc comparison → 1 col */
+  div[style*="grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px"]{grid-template-columns:1fr !important}
+
+  /* Calc breakdown table — simplified */
+  .calc-row{grid-template-columns:1fr 1fr !important;font-size:12px}
+  .calc-row span:first-child{grid-column:1/-1;font-weight:500;color:var(--navy);margin-bottom:2px}
+  div[style*="background:var(--navy);padding:12px 20px"]{grid-template-columns:1fr 1fr !important}
+
+  /* Saving banner */
+  div[id="saving-banner"]{flex-direction:column;gap:12px}
+
+  /* Mbox */
+  .mbox{padding:20px 16px}
+
+  /* Cards padding */
+  .card{padding:18px 16px}
+
+  /* Table font */
+  .dt{font-size:12px}
+  .dt th,.dt td{padding:9px 12px}
+
+  /* Urgency bar */
+  .urgency{padding:9px 16px;font-size:12px}
+
+  /* FAQ */
+  .fqq{font-size:13px;padding:14px 16px}
+
+  /* Big numbers */
+  .bignum-v{font-size:38px}
+  .bignum{padding:20px 16px}
+}
+
+@media(max-width:480px){
+  .acts{grid-template-columns:1fr !important}
+  .ntab{padding:0 8px;font-size:11px}
+  h1[style*="font-size:46px"]{font-size:24px !important}
+}
 </style>
 </head>
 <body>
