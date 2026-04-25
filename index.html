@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The provider Flexible Annuities — Professional Adviser Dashboard</title>
+<title>Aetas Wealth — Pension Legacy Planning · Adviser Dashboard</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{--navy:#0D1B3E;--navy-mid:#1C3461;--gold:#B8820A;--gold-subtle:#FFF8E6;--cream:#FAFAF7;--bg:#F2F1EE;--white:#FFFFFF;--border:#DDD9CF;--border-light:#EAE8E2;--text:#1A1A2A;--text-mid:#4A4956;--text-light:#hundreds of097;--green:#0A7050;--green-bg:#EBF7F1;--red:#B52020;--red-bg:#FDF0F0;--blue:#1C3461;--blue-bg:#EBF0FA;--amber:#92650A;--amber-bg:#FFF8E6;--fpa:#1C3461;--fpa-bg:#EBF0FA;--fla:#0A7050;--fla-bg:#EBF7F1;--r:8px;--rl:12px}
@@ -186,6 +186,28 @@ td.good{color:var(--green);font-weight:500}td.bad{color:var(--red)}
 </head>
 <body>
 
+<!-- ═══ STICKY NAV (tabs) — PINNED TO TOP ═══ -->
+<header class="header" style="top:0;position:sticky;z-index:200">
+  <div class="hbrand" style="border-right:1px solid rgba(255,255,255,0.12)">
+    <a href="#" onclick="showTab('overview',document.querySelector('.ntab'));return false;" style="text-decoration:none;display:flex;align-items:baseline;gap:5px">
+      <span style="font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:white">Aetas</span>
+      <span style="font-family:'Playfair Display',serif;font-size:16px;font-style:italic;color:#B8820A">Wealth</span>
+    </a>
+  </div>
+  <nav class="nav">
+    <button class="ntab active" onclick="showTab('overview',this)"><span class="tdot"></span>Overview</button>
+    <button class="ntab" onclick="showTab('fpa',this)"><span class="tdot"></span>Pension Annuity (FPA)</button>
+    <button class="ntab" onclick="showTab('fla',this)"><span class="tdot"></span>Life Annuity (FLA)</button>
+    <button class="ntab" onclick="showTab('how',this)"><span class="tdot"></span>How It Works</button>
+    <button class="ntab" onclick="showTab('cases',this)"><span class="tdot"></span>Case Studies</button>
+    <button class="ntab" onclick="showTab('costs',this)"><span class="tdot"></span>Costs &amp; Benefits</button>
+    <button class="ntab" onclick="showTab('faqs',this)"><span class="tdot"></span>FAQs</button>
+    <div style="width:1px;background:rgba(255,255,255,0.12);margin:10px 8px;flex-shrink:0"></div>
+    <a class="ntab" href="flexible-pension-annuity.html" style="color:rgba(255,255,255,0.55);gap:5px;text-decoration:none">FPA Deep Dive ↗</a>
+    <a class="ntab" href="flexible-life-annuity.html" style="color:rgba(255,255,255,0.55);gap:5px;text-decoration:none">FLA Deep Dive ↗</a>
+  </nav>
+</header>
+
 <!-- ═══ AETAS TOPBAR ═══ -->
 <div style="background:#F5F3EF;border-bottom:1px solid #E5E2D9;padding:14px 32px;display:flex;align-items:center;justify-content:space-between">
   <a href="https://aetas-wealth.com" style="text-decoration:none;display:flex;align-items:baseline;gap:6px">
@@ -230,28 +252,6 @@ td.good{color:var(--green);font-weight:500}td.bad{color:var(--red)}
 <div style="background:#FFF8E6;border-bottom:1px solid rgba(184,130,10,0.35);padding:10px 32px;font-size:13px;color:#92650A">
   <strong>Finance Act 2026 · Royal Assent 20 March 2026.</strong>&nbsp; Pension IHT takes effect April 2027. Clients over 75 can eliminate income tax on death benefits immediately — and start the 2-year BPR clock now.
 </div>
-
-<!-- ═══ STICKY NAV (tabs) ═══ -->
-<header class="header" style="top:0">
-  <div class="hbrand" style="border-right:1px solid rgba(255,255,255,0.12)">
-    <div style="display:flex;align-items:baseline;gap:5px">
-      <span style="font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:white">Aetas</span>
-      <span style="font-family:'Playfair Display',serif;font-size:16px;font-style:italic;color:#B8820A">Wealth</span>
-    </div>
-  </div>
-  <nav class="nav">
-    <button class="ntab active" onclick="showTab('overview',this)"><span class="tdot"></span>Overview</button>
-    <button class="ntab" onclick="showTab('fpa',this)"><span class="tdot"></span>Pension Annuity (FPA)</button>
-    <button class="ntab" onclick="showTab('fla',this)"><span class="tdot"></span>Life Annuity (FLA)</button>
-    <button class="ntab" onclick="showTab('how',this)"><span class="tdot"></span>How It Works</button>
-    <button class="ntab" onclick="showTab('cases',this)"><span class="tdot"></span>Case Studies</button>
-    <button class="ntab" onclick="showTab('costs',this)"><span class="tdot"></span>Costs &amp; Benefits</button>
-    <button class="ntab" onclick="showTab('faqs',this)"><span class="tdot"></span>FAQs</button>
-    <div style="width:1px;background:rgba(255,255,255,0.12);margin:10px 8px;flex-shrink:0"></div>
-    <a class="ntab" href="flexible-pension-annuity.html" style="color:rgba(255,255,255,0.55);gap:5px;text-decoration:none">FPA Deep Dive ↗</a>
-    <a class="ntab" href="flexible-life-annuity.html" style="color:rgba(255,255,255,0.55);gap:5px;text-decoration:none">FLA Deep Dive ↗</a>
-  </nav>
-</header>
 
 <main class="main">
 
