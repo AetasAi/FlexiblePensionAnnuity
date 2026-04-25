@@ -232,6 +232,14 @@ td.g{color:var(--green);font-weight:500}td.r{color:var(--red)}
   h1[style*="font-size:46px"]{font-size:24px !important}
 }
 </style>
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7VFMY2YCH3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7VFMY2YCH3');
+</script>
 </head>
 <body>
 
@@ -1085,7 +1093,62 @@ function showTab(id,btn){
   document.getElementById('tab-'+id).classList.add('active');
   if(btn&&btn.classList)btn.classList.add('active');
   window.scrollTo({top:0,behavior:'smooth'});
+  trackEvent('tab_view', {tab_name: id});
 }
+
+// ── GA4 Custom Event Tracking ──
+function trackEvent(event_name, params){
+  if(typeof gtag === 'function') gtag('event', event_name, params);
+}
+
+// Track Book a Meeting clicks
+document.addEventListener('DOMContentLoaded', function(){
+  // Book a Meeting buttons
+  document.querySelectorAll('a[href*="booking/65kC9dm2"]').forEach(function(el){
+    el.addEventListener('click', function(){
+      trackEvent('book_meeting_click', {location: el.closest('[id]') ? el.closest('[id]').id : 'nav'});
+    });
+  });
+
+  // Hero CTA buttons
+  document.querySelectorAll('button[onclick*="showTab"]').forEach(function(el){
+    if(el.closest('.header')) return; // skip nav tabs, tracked separately
+    el.addEventListener('click', function(){
+      trackEvent('hero_cta_click', {label: el.textContent.trim().substring(0,30)});
+    });
+  });
+
+  // Calculator inputs
+  var calcInputs = ['fundInput','fundSlider','adviserFee'];
+  calcInputs.forEach(function(id){
+    var el = document.getElementById(id);
+    if(el) el.addEventListener('change', function(){
+      trackEvent('calculator_interaction', {field: id, value: el.value});
+    });
+  });
+
+  // Radio pill selections in calculator
+  document.querySelectorAll('input[name="age"], input[name="spouse"], input[name="tax"]').forEach(function(el){
+    el.addEventListener('change', function(){
+      trackEvent('calculator_interaction', {field: el.name, value: el.value});
+    });
+  });
+
+  // Case study expansions
+  document.querySelectorAll('.ccard').forEach(function(card){
+    card.addEventListener('click', function(){
+      var name = card.querySelector('.cn') ? card.querySelector('.cn').textContent : 'unknown';
+      trackEvent('case_study_expand', {case_name: name});
+    });
+  });
+
+  // FAQ expansions
+  document.querySelectorAll('.fqq').forEach(function(el){
+    el.addEventListener('click', function(){
+      trackEvent('faq_expand', {question: el.textContent.trim().substring(0,60)});
+    });
+  });
+});
 
 function syncSlider(name){
   const inp = document.getElementById(name+'Input');
