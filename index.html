@@ -24,15 +24,15 @@
 :root{--navy:#0D1B3E;--navy-mid:#1C3461;--gold:#B8820A;--cream:#FAFAF7;--bg:#F2F1EE;--white:#FFFFFF;--border:#DDD9CF;--border-light:#EAE8E2;--text:#1A1A2A;--text-mid:#4A4956;--text-light:#888097;--green:#0A7050;--green-bg:#EBF7F1;--red:#B52020;--red-bg:#FDF0F0;--blue:#1C3461;--blue-bg:#EBF0FA;--amber:#92650A;--amber-bg:#FFF8E6;--r:8px;--rl:12px}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased}
-.header{background:white;padding:0 40px;position:sticky;top:0;z-index:200;display:flex;align-items:center;border-bottom:1px solid var(--border);min-height:88px;gap:0;box-shadow:0 1px 8px rgba(13,27,62,0.06)}
-.hbrand{display:flex;align-items:baseline;gap:6px;text-decoration:none;flex-shrink:0;margin-right:40px}
-.htagline{font-size:11.5px;color:var(--text-light);letter-spacing:0.05em;text-transform:uppercase;margin-left:auto;flex-shrink:0;padding-left:32px;white-space:nowrap}
-.nav{display:flex;align-items:stretch;flex:1;overflow-x:auto;scrollbar-width:none}
+.header{background:white;padding:0 24px;position:sticky;top:0;z-index:200;display:flex;align-items:center;border-bottom:1px solid var(--border);min-height:72px;gap:0;box-shadow:0 1px 8px rgba(13,27,62,0.06)}
+.hbrand{display:flex;align-items:baseline;gap:6px;text-decoration:none;flex-shrink:0;margin-right:28px}
+.htagline{font-size:11px;color:var(--text-light);letter-spacing:0.04em;text-transform:uppercase;margin-left:auto;flex-shrink:0;padding-left:20px;white-space:nowrap}
+.nav{display:flex;align-items:stretch;flex:1;overflow-x:auto;scrollbar-width:none;min-width:0}
 .nav::-webkit-scrollbar{display:none}
-.ntab{display:flex;align-items:center;gap:6px;padding:0 16px;font-size:13px;font-weight:400;color:var(--text-mid);cursor:pointer;border-bottom:3px solid transparent;border-top:3px solid transparent;white-space:nowrap;transition:color .15s,border-color .15s;background:none;border-left:none;border-right:none;font-family:'DM Sans',sans-serif;height:100%}
+.ntab{display:flex;align-items:center;gap:5px;padding:0 12px;font-size:12.5px;font-weight:400;color:var(--text-mid);cursor:pointer;border-bottom:3px solid transparent;border-top:3px solid transparent;white-space:nowrap;transition:color .15s,border-color .15s;background:none;border-left:none;border-right:none;font-family:'DM Sans',sans-serif;height:100%}
 .ntab:hover{color:var(--navy)}
 .ntab.active{color:var(--navy);border-bottom-color:var(--gold);font-weight:600}
-.tdot{width:5px;height:5px;border-radius:50%;background:currentColor;opacity:0.3;flex-shrink:0}.ntab.active .tdot{opacity:1;background:var(--gold)}
+.tdot{width:4px;height:4px;border-radius:50%;background:currentColor;opacity:0.3;flex-shrink:0}.ntab.active .tdot{opacity:1;background:var(--gold)}
 .main{max-width:1200px;margin:0 auto;padding:36px 32px}
 .section{display:none}.section.active{display:block;animation:fi .2s ease}
 @keyframes fi{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
@@ -433,11 +433,11 @@ td.g{color:var(--green);font-weight:500}td.r{color:var(--red)}
     <button class="ntab" onclick="showTab('how',this)"><span class="tdot"></span>How It Works</button>
     <button class="ntab" onclick="showTab('cases',this)"><span class="tdot"></span>Case Studies</button>
     <button class="ntab" onclick="showTab('costs',this)"><span class="tdot"></span>Costs &amp; Benefits</button>
-    <button class="ntab" onclick="showTab('calc',this)"><span class="tdot"></span>Tax Calculator</button>
+    <button class="ntab" onclick="showTab('calc',this)"><span class="tdot"></span>Calculator</button>
     <button class="ntab" onclick="showTab('insights',this)"><span class="tdot"></span>Insights</button>
     <button class="ntab" onclick="showTab('faqs',this)"><span class="tdot"></span>FAQs</button>
   </nav>
-  <span class="htagline">Pension Legacy Planning &middot; Adviser Guide &middot; April 2026</span>
+  <span class="htagline">Pension Legacy Planning &middot; April 2026</span>
   <a href="https://link.aetas-wealth.com/widget/booking/65kC9dm2WgkoxziAWlFE" target="_blank" style="margin-left:20px;flex-shrink:0;background:var(--navy);color:white;padding:10px 20px;border-radius:6px;font-size:13px;font-weight:500;text-decoration:none;white-space:nowrap;font-family:'DM Sans',sans-serif;transition:background .15s" onmouseover="this.style.background='#1C3461'" onmouseout="this.style.background='var(--navy)'">Book a Meeting</a>
 </header>
 
