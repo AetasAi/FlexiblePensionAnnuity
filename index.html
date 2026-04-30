@@ -482,13 +482,10 @@ td.g{color:var(--green);font-weight:500}td.r{color:var(--red)}
   </a>
   <nav class="nav">
     <button class="ntab active" onclick="showTab('overview',this)"><span class="tdot"></span>Overview</button>
-    <button class="ntab" onclick="showTab('problem',this)"><span class="tdot"></span>The Problem</button>
-    <button class="ntab" onclick="showTab('solution',this)"><span class="tdot"></span>The Solution</button>
-    <button class="ntab" onclick="showTab('how',this)"><span class="tdot"></span>How It Works</button>
+    <button class="ntab" onclick="showTabGroup(['problem','solution','how','costs'],this)"><span class="tdot"></span>The Issue &amp; Fix</button>
     <button class="ntab" onclick="showTab('cases',this)"><span class="tdot"></span>Case Studies</button>
-    <button class="ntab" onclick="showTab('costs',this)"><span class="tdot"></span>Costs &amp; Benefits</button>
     <button class="ntab" onclick="showTab('calc',this)"><span class="tdot"></span>Calculator</button>
-    <button class="ntab" onclick="showTab('insights',this)"><span class="tdot"></span>Insights</button>
+    <button class="ntab" onclick="showTabGroup(['faqs','insights'],this)"><span class="tdot"></span>FAQs</button>
     <button class="ntab" onclick="showTab('faqs',this)"><span class="tdot"></span>FAQs</button>
   </nav>
   <span class="htagline">Pension Legacy Planning &middot; April 2026</span>
@@ -505,11 +502,23 @@ td.g{color:var(--green);font-weight:500}td.r{color:var(--red)}
         <span style="font-size:11px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:rgba(184,130,10,0.85)">Finance Act 2026 &middot; Royal Assent 20 March 2026</span>
       </div>
       <h1 style="font-family:'Playfair Display',serif;font-size:46px;font-weight:400;color:white;line-height:1.1;margin-bottom:18px">Pension funds are about to cost your clients <em style="color:#B8820A;font-style:italic">two taxes</em> to pass on.</h1>
-      <p style="font-size:16px;color:rgba(255,255,255,0.65);line-height:1.85;margin-bottom:36px;max-width:580px">From April 2027, unused DC pension funds enter the IHT estate. For clients over 75, 40% IHT hits first &mdash; then beneficiaries pay income tax on what remains. The combined charge reaches 67%. Some scenarios reach 80%.</p>
-      <div style="display:flex;gap:12px">
-        <button onclick="showTab('problem',document.querySelectorAll('.ntab')[1])" style="background:white;color:#0D1B3E;padding:13px 24px;border:none;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif">Understand the problem &rarr;</button>
-        <button onclick="showTab('solution',document.querySelectorAll('.ntab')[2])" style="background:transparent;color:rgba(255,255,255,0.8);padding:13px 24px;border:1px solid rgba(255,255,255,0.25);border-radius:8px;font-size:14px;cursor:pointer;font-family:'DM Sans',sans-serif">See the solution &rarr;</button>
-        <a href="https://link.aetas-wealth.com/widget/booking/65kC9dm2WgkoxziAWlFE" target="_blank" style="background:#B8820A;color:white;padding:13px 24px;border-radius:8px;font-size:14px;font-weight:500;text-decoration:none;white-space:nowrap;font-family:'DM Sans',sans-serif">Book a Meeting</a>
+      <p style="font-size:16px;color:rgba(255,255,255,0.65);line-height:1.85;margin-bottom:24px;max-width:580px">From April 2027, unused DC pension funds enter the IHT estate. For clients over 75, 40% IHT hits first &mdash; then beneficiaries pay income tax on what remains. The combined charge reaches 67%. Some scenarios reach 80%.</p>
+      <div id="qw-countdown" style="display:flex;align-items:center;gap:14px;margin-bottom:28px;padding:12px 16px;background:rgba(184,130,10,0.12);border:1px solid rgba(184,130,10,0.3);border-radius:8px;max-width:580px">
+  <div style="font-size:22px;font-weight:700;color:#B8820A;font-family:'Playfair Display',serif;white-space:nowrap" id="qw-months">—</div>
+  <div style="font-size:12.5px;color:rgba(255,255,255,0.65);line-height:1.5">months until Finance Act 2026 takes effect &middot; <strong style="color:rgba(255,255,255,0.85)">The BPR qualifying period is 2 years.</strong> Time to act is now.</div>
+</div>
+<script>
+(function(){
+  var target = new Date('2027-04-06T00:00:00Z');
+  var now = new Date();
+  var months = (target.getFullYear() - now.getFullYear())*12 + (target.getMonth() - now.getMonth());
+  if(target.getDate() > now.getDate()) months = Math.max(0, months);
+  document.getElementById('qw-months').textContent = months + (months === 1 ? ' month' : ' months');
+})();
+</script>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <a href="https://fpa.aetaspartners.com/FPA-Adviser-Compliance-Pack.pdf" target="_blank" style="background:white;color:#0D1B3E;padding:13px 24px;border-radius:8px;font-size:14px;font-weight:500;text-decoration:none;white-space:nowrap;font-family:'DM Sans',sans-serif">&#8595; Download the compliance pack</a>
+        <a href="https://link.aetas-wealth.com/widget/booking/65kC9dm2WgkoxziAWlFE" target="_blank" style="background:#B8820A;color:white;padding:13px 24px;border-radius:8px;font-size:14px;font-weight:500;text-decoration:none;white-space:nowrap;font-family:'DM Sans',sans-serif">Book a Meeting &rarr;</a>
       </div>
     </div>
     <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:28px">
@@ -556,6 +565,15 @@ td.g{color:var(--green);font-weight:500}td.r{color:var(--red)}
     <div class="bignum"><div class="bignum-v">67%</div><div class="bignum-l">Maximum combined effective tax rate on pension death benefits for clients over 75 from April 2027</div></div>
     <div class="bignum"><div class="bignum-v gold">&pound;0</div><div class="bignum-l">Tax on the residual pension fund after 2 years with the Flexible Pension Annuity and Business Property Relief</div></div>
     <div class="bignum"><div class="bignum-v">100%</div><div class="bignum-l">BPR claim success rate &mdash; every single claim past the 2-year mark has been accepted by HMRC</div></div>
+  </div>
+  <!-- Peter Rose — adviser trust signal in hero -->
+  <div style="display:flex;align-items:center;gap:14px;padding:16px 20px;background:white;border-radius:10px;border:1px solid var(--border);margin-top:4px;margin-bottom:28px">
+    <img src="peter-rose.jpg" alt="Peter Rose APFS"
+      style="width:52px;height:52px;border-radius:50%;object-fit:cover;object-position:center top;border:2px solid var(--border);flex-shrink:0">
+    <div>
+      <div style="font-size:13.5px;font-weight:600;color:var(--navy);margin-bottom:2px">Peter Rose APFS &middot; Chartered Financial Planner</div>
+      <div style="font-size:12px;color:var(--text-mid);line-height:1.5">50 years advising on complex pension arrangements &middot; Aetas Wealth &middot; <a href="https://link.aetas-wealth.com/widget/booking/65kC9dm2WgkoxziAWlFE" target="_blank" style="color:var(--navy);font-weight:600;text-decoration:underline">Book a call &rarr;</a></div>
+    </div>
   </div>
 
   <div class="tag">Key Dates</div>
@@ -1385,6 +1403,14 @@ function showTab(id,btn){
   window.scrollTo({top:0,behavior:'smooth'});
   trackEvent('tab_view', {tab_name: id});
 }
+function showTabGroup(ids,btn){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.ntab').forEach(t=>t.classList.remove('active'));
+  ids.forEach(function(id){var el=document.getElementById('tab-'+id);if(el)el.classList.add('active');});
+  if(btn&&btn.classList)btn.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+  trackEvent('tab_view', {tab_name: ids[0]});
+}
 
 // ── GA4 Custom Event Tracking ──
 function trackEvent(event_name, params){
@@ -1656,5 +1682,20 @@ function toggleFaq(el){el.parentElement.classList.toggle('open')}
   }
 })();
 </script>
+
+<!-- Mobile sticky CTA bar -->
+<div id="mobile-sticky-cta" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:999;background:var(--navy);padding:12px 20px;box-shadow:0 -4px 20px rgba(13,27,62,0.25);border-top:2px solid var(--gold)">
+  <a href="https://link.aetas-wealth.com/widget/booking/65kC9dm2WgkoxziAWlFE" target="_blank"
+    style="display:block;text-align:center;background:#B8820A;color:white;padding:13px;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none;font-family:'DM Sans',sans-serif;letter-spacing:0.01em"
+    onclick="trackEvent('book_meeting_click',{location:'mobile_sticky'})">
+    Book a Meeting with Peter Rose &rarr;
+  </a>
+</div>
+<style>
+@media(max-width:768px){
+  #mobile-sticky-cta{display:block !important}
+  body{padding-bottom:72px}
+}
+</style>
 </body>
 </html>
