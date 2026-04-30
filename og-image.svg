@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0D1B3E"/>
+      <stop offset="100%" stop-color="#1C3461"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#B8820A" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#B8820A" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Gold glow top-right -->
+  <ellipse cx="980" cy="120" rx="340" ry="220" fill="url(#glow)"/>
+
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="8" height="630" fill="#B8820A"/>
+
+  <!-- Bottom rule -->
+  <rect x="80" y="560" width="1040" height="1" fill="#B8820A" opacity="0.35"/>
+
+  <!-- Finance Act badge -->
+  <rect x="80" y="72" width="310" height="32" rx="4" fill="#B8820A" opacity="0.18"/>
+  <text x="95" y="93" font-family="Georgia, serif" font-size="13" font-weight="400" fill="#B8820A" letter-spacing="1.5">FINANCE ACT 2026 · ROYAL ASSENT 20 MARCH 2026</text>
+
+  <!-- Main headline -->
+  <text x="80" y="195" font-family="Georgia, serif" font-size="62" font-weight="400" fill="white">Pension funds are about to</text>
+  <text x="80" y="270" font-family="Georgia, serif" font-size="62" font-weight="400" fill="white">cost your clients</text>
+  <text x="80" y="345" font-family="Georgia, serif" font-size="68" font-weight="700" fill="#B8820A">two taxes</text>
+  <text x="80" y="415" font-family="Georgia, serif" font-size="62" font-weight="400" fill="white">to pass on.</text>
+
+  <!-- Sub-line -->
+  <text x="80" y="476" font-family="Arial, sans-serif" font-size="22" font-weight="400" fill="rgba(255,255,255,0.55)">The combined IHT + income tax charge reaches 67% from April 2027.</text>
+  <text x="80" y="506" font-family="Arial, sans-serif" font-size="22" font-weight="400" fill="rgba(255,255,255,0.55)">The Flexible Pension Annuity eliminates both.</text>
+
+  <!-- Right stats panel -->
+  <rect x="820" y="180" width="300" height="200" rx="12" fill="rgba(184,130,10,0.12)" stroke="#B8820A" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="970" y="238" text-anchor="middle" font-family="Georgia, serif" font-size="72" font-weight="400" fill="#B8820A">67%</text>
+  <text x="970" y="268" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.45)">COMBINED TAX RATE</text>
+  <text x="970" y="290" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.45)">FOR CLIENTS OVER 75</text>
+  <rect x="870" y="308" width="200" height="1" fill="#B8820A" opacity="0.3"/>
+  <text x="970" y="336" text-anchor="middle" font-family="Georgia, serif" font-size="36" font-weight="400" fill="white">£0</text>
+  <text x="970" y="358" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.45)">TAX WITH THE FPA</text>
+  <text x="970" y="376" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.45)">AFTER 2 YEARS</text>
+
+  <!-- Logo / Brand -->
+  <text x="80" y="593" font-family="Georgia, serif" font-size="18" font-weight="700" fill="#B8820A">Aetas</text>
+  <text x="118" y="593" font-family="Georgia, serif" font-size="18" font-weight="400" fill="rgba(255,255,255,0.55)"> Wealth</text>
+  <text x="240" y="593" font-family="Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.3)">· Pension Legacy Planning · For professional adviser use only</text>
+
+  <!-- FCA badge -->
+  <text x="1120" y="593" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="rgba(255,255,255,0.35)">FCA No. 458421 · FSCS Protected</text>
+</svg>

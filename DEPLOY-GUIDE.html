@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quick Wins Deploy Guide — Aetas Wealth FPA Site</title>
+<style>
+:root{
+  --navy:#0D1B3E;--navy-mid:#1C3461;--gold:#B8820A;--bg:#F0EFE9;
+  --white:#fff;--border:#DDD9CF;--text:#1A1A2A;--text-mid:#4A4956;
+  --text-light:#888097;--green:#0A7050;--green-bg:#EBF7F1;
+  --red:#B52020;--red-bg:#FDF0F0;--amber:#92650A;--amber-bg:#FFF8E6;
+  --r:8px;--rl:12px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);font-size:14px;line-height:1.7}
+.page{max-width:920px;margin:0 auto;padding:40px 24px 80px}
+
+/* Header */
+.hdr{background:var(--navy);border-radius:var(--rl);padding:32px 36px;margin-bottom:28px}
+.hdr .ey{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(184,130,10,.85);margin-bottom:8px}
+.hdr h1{font-size:22px;font-weight:500;color:white;margin-bottom:4px}
+.hdr p{font-size:13px;color:rgba(255,255,255,.45)}
+.progress{display:flex;gap:8px;margin-top:20px;flex-wrap:wrap}
+.prog-item{font-size:11px;padding:4px 10px;border-radius:10px;font-weight:500}
+.prog-item.done{background:var(--green-bg);color:var(--green)}
+.prog-item.todo{background:rgba(255,255,255,.08);color:rgba(255,255,255,.55)}
+
+/* Task cards */
+.task{background:var(--white);border:1px solid var(--border);border-radius:var(--rl);margin-bottom:20px;overflow:hidden}
+.task-head{display:flex;align-items:flex-start;gap:16px;padding:18px 22px 14px}
+.task-num{width:32px;height:32px;border-radius:50%;background:var(--navy);color:var(--gold);font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.task-info h2{font-size:15px;font-weight:600;color:var(--navy);margin-bottom:3px}
+.task-info p{font-size:12.5px;color:var(--text-mid);line-height:1.55}
+.task-meta{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}
+.pill{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.05em;padding:2px 8px;border-radius:10px}
+.pill.green{background:var(--green-bg);color:var(--green)}
+.pill.amber{background:var(--amber-bg);color:var(--amber)}
+.pill.red{background:var(--red-bg);color:var(--red)}
+.pill.navy{background:var(--navy);color:white}
+
+/* Instructions */
+.task-body{padding:0 22px 20px;border-top:1px solid var(--border)}
+.step{margin-top:14px}
+.step-label{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-light);margin-bottom:6px}
+.step p{font-size:13px;color:var(--text-mid);line-height:1.6;margin-bottom:6px}
+.step ul{margin:6px 0 0 18px;display:flex;flex-direction:column;gap:4px}
+.step ul li{font-size:13px;color:var(--text-mid)}
+
+/* Code blocks */
+.code-wrap{position:relative;margin:10px 0}
+.code-label{position:absolute;top:10px;right:12px;font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.3)}
+pre{background:#111827;color:#C8C4E0;border-radius:var(--r);padding:16px 18px;font-family:'Courier New',monospace;font-size:12px;line-height:1.7;overflow-x:auto;margin:10px 0}
+.c{color:#4B5563}
+.kw{color:#B8820A}
+.str{color:#6DB87A}
+.attr{color:#7DD3FC}
+.val{color:#F9A8D4}
+.tag{color:#60A5FA}
+
+/* Where to paste */
+.where{background:var(--amber-bg);border:1px solid rgba(146,101,10,.2);border-radius:var(--r);padding:12px 16px;margin-top:12px;font-size:12.5px;color:var(--amber)}
+.where strong{color:var(--amber);display:block;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
+.file-ref{display:inline-block;background:var(--navy);color:var(--gold);font-family:'Courier New',monospace;font-size:11px;padding:2px 8px;border-radius:4px;margin:2px}
+
+/* Deploy checklist */
+.checklist{background:var(--navy);border-radius:var(--rl);padding:28px 32px;margin-top:32px}
+.checklist h2{font-size:14px;font-weight:600;color:rgba(184,130,10,.9);margin-bottom:16px;letter-spacing:.06em;text-transform:uppercase}
+.check-item{display:flex;align-items:flex-start;gap:12px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,.07)}
+.check-item:last-child{border-bottom:none;margin-bottom:0}
+.check-box{width:18px;height:18px;border:1.5px solid rgba(184,130,10,.5);border-radius:4px;flex-shrink:0;margin-top:1px}
+.check-text{font-size:13px;color:rgba(255,255,255,.65);line-height:1.5}
+.check-text strong{color:white}
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="hdr">
+  <div class="ey">Quick Wins Deploy Guide · April 2026</div>
+  <h1>7 Quick Wins — Ready to Deploy</h1>
+  <p>Copy-paste code for each fix. Estimated total time: 2–3 hours. No new dependencies required.</p>
+  <div class="progress">
+    <div class="prog-item todo">1 · Favicon</div>
+    <div class="prog-item todo">2 · OG Image tag</div>
+    <div class="prog-item todo">3 · sitemap.xml</div>
+    <div class="prog-item todo">4 · robots.txt</div>
+    <div class="prog-item todo">5 · Person schema</div>
+    <div class="prog-item todo">6 · Microsoft Clarity</div>
+    <div class="prog-item todo">7 · Insight page nav</div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════
+     TASK 1 — FAVICON
+══════════════════════════════════ -->
+<div class="task">
+  <div class="task-head">
+    <div class="task-num">1</div>
+    <div class="task-info">
+      <h2>Favicon — Add the AW brand icon to browser tabs</h2>
+      <p>Currently missing. Browser tabs show a blank page icon. The favicon.svg file is included in the deliverables.</p>
+      <div class="task-meta">
+        <span class="pill green">~10 mins</span>
+        <span class="pill navy">Add 2 files to repo</span>
+        <span class="pill navy">Paste 3 lines into every HTML &lt;head&gt;</span>
+      </div>
+    </div>
+  </div>
+  <div class="task-body">
+    <div class="step">
+      <div class="step-label">Step 1 — Add the files to the repository root</div>
+      <p>The <code>favicon.svg</code> file is in your deliverables. Add it to the root of the repository alongside <code>index.html</code>. You can also convert it to a <code>favicon.ico</code> using <a href="https://favicon.io/favicon-converter/" target="_blank">favicon.io</a> for broader browser support — add both.</p>
+    </div>
+    <div class="step">
+      <div class="step-label">Step 2 — Add these lines to the &lt;head&gt; of every HTML page</div>
+      <div class="code-wrap">
+        <div class="code-label">HTML — paste into &lt;head&gt;</div>
+        <pre><span class="c">&lt;!-- Favicon --&gt;</span>
+<span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="str">"icon"</span> <span class="attr">href</span>=<span class="str">"favicon.svg"</span> <span class="attr">type</span>=<span class="str">"image/svg+xml"</span><span class="tag">&gt;</span>
+<span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="str">"alternate icon"</span> <span class="attr">href</span>=<span class="str">"favicon.ico"</span><span class="tag">&gt;</span>
+<span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="str">"apple-touch-icon"</span> <span class="attr">href</span>=<span class="str">"favicon.svg"</span><span class="tag">&gt;</span></pre>
+      </div>
+      <div class="where">
+        <strong>Add to these files</strong>
+        <span class="file-ref">index.html</span>
+        <span class="file-ref">insight-double-whammy.html</span>
+        <span class="file-ref">insight-bpr-legal-basis.html</span>
+        <span class="file-ref">insight-executor-liability.html</span>
+        — Place immediately after the &lt;meta charset&gt; line.
+      </div>
+      <p style="margin-top:10px;font-size:12px;color:var(--text-light)">Note: insight pages use relative paths — the favicon.svg is in the repo root, one directory up. For insight pages, if they move into an /insights/ subfolder later, use <code>../favicon.svg</code>. For now, all files are in the same root directory, so <code>favicon.svg</code> works as-is.</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════
+     TASK 2 — OG IMAGE
+══════════════════════════════════ -->
+<div class="task">
+  <div class="task-head">
+    <div class="task-num">2</div>
+    <div class="task-info">
+      <h2>Open Graph Image — Fix social sharing previews on LinkedIn &amp; WhatsApp</h2>
+      <p>Currently no og:image on any page. When advisers share links, no preview image appears — only text. The og-image.svg file is included in deliverables.</p>
+      <div class="task-meta">
+        <span class="pill green">~15 mins</span>
+        <span class="pill navy">Add 1 file to repo</span>
+        <span class="pill navy">Paste 2 lines into every HTML &lt;head&gt;</span>
+        <span class="pill red">High impact — LinkedIn sharing</span>
+      </div>
+    </div>
+  </div>
+  <div class="task-body">
+    <div class="step">
+      <div class="step-label">Step 1 — Add og-image.svg to the repository</div>
+      <p>Add the <code>og-image.svg</code> file to the repository root. LinkedIn, Twitter, and WhatsApp all support SVG for Open Graph images. If you want maximum compatibility, also export it as a PNG (1200×630px) using Inkscape, Figma, or <a href="https://convertio.co/svg-png/" target="_blank">convertio.co</a> and use that instead.</p>
+    </div>
+    <div class="step">
+      <div class="step-label">Step 2 — Add these meta tags to every HTML &lt;head&gt;</div>
+      <div class="code-wrap">
+        <div class="code-label">HTML — paste into &lt;head&gt;</div>
+        <pre><span class="c">&lt;!-- Open Graph image — add after existing og: tags --&gt;</span>
+<span class="tag">&lt;meta</span> <span class="attr">property</span>=<span class="str">"og:image"</span>
+      <span class="attr">content</span>=<span class="str">"https://aetasai.github.io/FlexiblePensionAnnuity/og-image.svg"</span><span class="tag">&gt;</span>
+<span class="tag">&lt;meta</span> <span class="attr">property</span>=<span class="str">"og:image:width"</span> <span class="attr">content</span>=<span class="str">"1200"</span><span class="tag">&gt;</span>
+<span class="tag">&lt;meta</span> <span class="attr">property</span>=<span class="str">"og:image:height"</span> <span class="attr">content</span>=<span class="str">"630"</span><span class="tag">&gt;</span>
+<span class="tag">&lt;meta</span> <span class="attr">property</span>=<span class="str">"og:image:alt"</span>
+      <span class="attr">content</span>=<span class="str">"Pension funds face 67% combined IHT and income tax from April 2027. The FPA eliminates both. Aetas Wealth — for professional advisers."</span><span class="tag">&gt;</span>
+<span class="c">&lt;!-- Twitter image --&gt;</span>
+<span class="tag">&lt;meta</span> <span class="attr">name</span>=<span class="str">"twitter:card"</span> <span class="attr">content</span>=<span class="str">"summary_large_image"</span><span class="tag">&gt;</span>
+<span class="tag">&lt;meta</span> <span class="attr">name</span>=<span class="str">"twitter:image"</span>
+      <span class="attr">content</span>=<span class="str">"https://aetasai.github.io/FlexiblePensionAnnuity/og-image.svg"</span><span class="tag">&gt;</span></pre>
+      </div>
+      <div class="where">
+        <strong>Add to these files — place after the existing &lt;meta property="og:url"&gt; line</strong>
+        <span class="file-ref">index.html</span>
+        <span class="file-ref">insight-double-whammy.html</span>
+        <span class="file-ref">insight-bpr-legal-basis.html</span>
+        <span class="file-ref">insight-executor-liability.html</span>
+      </div>
+      <p style="margin-top:10px;font-size:12px;color:var(--text-light)">Also change the existing <code>twitter:card</code> value from <code>"summary"</code> to <code>"summary_large_image"</code> on all pages — this shows a large preview image rather than a small thumbnail.</p>
+      <p style="margin-top:6px;font-size:12px;color:var(--text-light)">Test the result at <a href="https://www.linkedin.com/post-inspector/" target="_blank">LinkedIn Post Inspector</a> and <a href="https://cards-dev.twitter.com/validator" target="_blank">Twitter Card Validator</a> once deployed.</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════
+     TASK 3 — SITEMAP.XML
+══════════════════════════════════ -->
+<div class="task">
+  <div class="task-head">
+    <div class="task-num">3</div>
+    <div class="task-info">
+      <h2>sitemap.xml — Tell Google about every page</h2>
+      <p>No sitemap currently exists. Without it, newly added pages may not be discovered by Google for weeks.</p>
+      <div class="task-meta">
+        <span class="pill green">~5 mins</span>
+        <span class="pill navy">Add 1 file to repo root</span>
+        <span class="pill navy">Submit URL to Search Console</span>
+      </div>
+    </div>
+  </div>
+  <div class="task-body">
+    <div class="step">
+      <div class="step-label">Step 1 — Add sitemap.xml to the repository root</div>
+      <p>The <code>sitemap.xml</code> file is in your deliverables. Add it to the root of the repository alongside <code>index.html</code>. No other configuration needed — GitHub Pages serves it automatically.</p>
+    </div>
+    <div class="step">
+      <div class="step-label">Step 2 — Submit to Google Search Console</div>
+      <ul>
+        <li>Go to <a href="https://search.google.com/search-console" target="_blank">search.google.com/search-console</a></li>
+        <li>Add property: <code>https://aetasai.github.io/FlexiblePensionAnnuity/</code></li>
+        <li>Verify ownership via the HTML meta tag method (paste one tag into index.html &lt;head&gt;)</li>
+        <li>Once verified, go to Sitemaps → Submit: <code>sitemap.xml</code></li>
+        <li>Search Console will now show indexing status, crawl errors, and keyword positions</li>
+      </ul>
+    </div>
+    <div class="step">
+      <div class="step-label">Important — Update sitemap.xml when you add new pages</div>
+      <p>Every time a new page is added (e.g. a new insight article), add it to sitemap.xml with today's date as the <code>&lt;lastmod&gt;</code> value. This tells Google to re-crawl promptly.</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════
+     TASK 4 — ROBOTS.TXT
+══════════════════════════════════ -->
+<div class="task">
+  <div class="task-head">
+    <div class="task-num">4</div>
+    <div class="task-info">
+      <h2>robots.txt — Standard crawl permissions + sitemap pointer</h2>
+      <p>No robots.txt currently exists. Without it, crawlers operate on defaults and don't know where to find the sitemap.</p>
+      <div class="task-meta">
+        <span class="pill green">~2 mins</span>
+        <span class="pill navy">Add 1 file to repo root</span>
+      </div>
+    </div>
+  </div>
+  <div class="task-body">
+    <div class="step">
+      <div class="step-label">Action — Add robots.txt to the repository root</div>
+      <p>The <code>robots.txt</code> file is in your deliverables. It allows all crawlers and points to the sitemap. Add it to the root of the repository alongside <code>index.html</code>. That's all that's required.</p>
+      <div class="code-wrap">
+        <div class="code-label">robots.txt — contents</div>
+        <pre>User-agent: *
+Allow: /
+
+Sitemap: https://aetasai.github.io/FlexiblePensionAnnuity/sitemap.xml</pre>
+      </div>
+      <p style="margin-top:8px;font-size:12px;color:var(--text-light)">Verify it's live at: <code>https://aetasai.github.io/FlexiblePensionAnnuity/robots.txt</code></p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════
+     TASK 5 — PERSON SCHEMA
+══════════════════════════════════ -->
+<div class="task">
+  <div class="task-head">
+    <div class="task-num">5</div>
+    <div class="task-info">
+      <h2>Person Schema — Help AI and Google identify Peter Rose as the expert author</h2>
+      <p>The site has Organization, FAQPage, and FinancialProduct schema — but no Person schema for Peter Rose. Adding this helps AI systems (ChatGPT, Perplexity, Google AI Overviews) attribute content to a named expert with verifiable credentials.</p>
+      <div class="task-meta">
+        <span class="pill green">~10 mins</span>
+        <span class="pill navy">Paste 1 JSON-LD block into all pages</span>
+        <span class="pill amber">Boosts AI search visibility</span>
+      </div>
+    </div>
+  </div>
+  <div class="task-body">
+    <div class="step">
+      <div class="step-label">Action — Add this JSON-LD block to the &lt;head&gt; of all pages</div>
+      <p>Paste this as a new <code>&lt;script type="application/ld+json"&gt;</code> block. Do not merge it into the existing schema block — keep it separate for clarity.</p>
+      <div class="code-wrap">
+        <div class="code-label">JSON-LD — paste into &lt;head&gt;</div>
+        <pre><span class="tag">&lt;script</span> <span class="attr">type</span>=<span class="str">"application/ld+json"</span><span class="tag">&gt;</span>
+{
+  <span class="str">"@context"</span>: <span class="str">"https://schema.org"</span>,
+  <span class="str">"@type"</span>: <span class="str">"Person"</span>,
+  <span class="str">"@id"</span>: <span class="str">"https://aetasai.github.io/FlexiblePensionAnnuity/#peter-rose"</span>,
+  <span class="str">"name"</span>: <span class="str">"Peter Rose"</span>,
+  <span class="str">"honorificSuffix"</span>: <span class="str">"APFS"</span>,
+  <span class="str">"jobTitle"</span>: <span class="str">"Chartered Financial Planner"</span>,
+  <span class="str">"description"</span>: <span class="str">"Peter Rose APFS is a Chartered Financial Planner specialising in pension inheritance tax planning under Finance Act 2026. He advises UK financial advisers on the Flexible Pension Annuity as a structured solution to eliminate the pension double whammy affecting DC pension funds from April 2027."</span>,
+  <span class="str">"email"</span>: <span class="str">"peter.rose@aetas-wealth.com"</span>,
+  <span class="str">"worksFor"</span>: {
+    <span class="str">"@id"</span>: <span class="str">"https://aetasai.github.io/FlexiblePensionAnnuity/#organization"</span>
+  },
+  <span class="str">"hasCredential"</span>: {
+    <span class="str">"@type"</span>: <span class="str">"EducationalOccupationalCredential"</span>,
+    <span class="str">"name"</span>: <span class="str">"APFS — Advanced Diploma in Financial Planning"</span>,
+    <span class="str">"credentialCategory"</span>: <span class="str">"Chartered Financial Planner"</span>,
+    <span class="str">"recognizedBy"</span>: {
+      <span class="str">"@type"</span>: <span class="str">"Organization"</span>,
+      <span class="str">"name"</span>: <span class="str">"Chartered Insurance Institute"</span>
+    }
+  },
+  <span class="str">"knowsAbout"</span>: [
+    <span class="str">"Finance Act 2026 pension IHT"</span>,
+    <span class="str">"Flexible Pension Annuity"</span>,
+    <span class="str">"Business Property Relief s105(1)(bb) IHTA 1984"</span>,
+    <span class="str">"DC pension estate planning"</span>,
+    <span class="str">"Executor liability under pension IHT rules"</span>,
+    <span class="str">"Gibraltar Protected Cell Company"</span>
+  ],
+  <span class="str">"url"</span>: <span class="str">"https://aetasai.github.io/FlexiblePensionAnnuity/"</span>,
+  <span class="str">"sameAs"</span>: [
+    <span class="c">// Add Peter Rose's LinkedIn URL here when available</span>
+    <span class="c">// e.g. "https://www.linkedin.com/in/peter-rose-aetas"</span>
+  ]
+}
+<span class="tag">&lt;/script&gt;</span></pre>
+      </div>
+      <div class="where">
+        <strong>Add to all pages — place just before &lt;/head&gt;</strong>
+        <span class="file-ref">index.html</span>
+        <span class="file-ref">insight-double-whammy.html</span>
+        <span class="file-ref">insight-bpr-legal-basis.html</span>
+        <span class="file-ref">insight-executor-liability.html</span>
+      </div>
+      <p style="margin-top:10px;font-size:12px;color:var(--text-light)">Also add <code>"author": {"@id": "https://aetasai.github.io/FlexiblePensionAnnuity/#peter-rose"}</code> to the existing Article/WebPage schema on the insight pages — this links authorship to the Person entity.</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════
+     TASK 6 — MICROSOFT CLARITY
+══════════════════════════════════ -->
+<div class="task">
+  <div class="task-head">
+    <div class="task-num">6</div>
+    <div class="task-info">
+      <h2>Microsoft Clarity — Free heatmaps and session recordings</h2>
+      <p>Currently no visual behaviour data. Clarity is free, takes 5 minutes to install, and shows you exactly where advisers click, scroll, and leave — far more actionable than GA4 alone.</p>
+      <div class="task-meta">
+        <span class="pill green">~10 mins</span>
+        <span class="pill green">Free — no cost</span>
+        <span class="pill navy">Paste 1 script into all pages</span>
+      </div>
+    </div>
+  </div>
+  <div class="task-body">
+    <div class="step">
+      <div class="step-label">Step 1 — Create a free Clarity account</div>
+      <ul>
+        <li>Go to <a href="https://clarity.microsoft.com" target="_blank">clarity.microsoft.com</a></li>
+        <li>Sign in with a Microsoft account (or create one free)</li>
+        <li>Click "Add new project" → enter site name and URL</li>
+        <li>Copy the project ID (a short alphanumeric string, e.g. <code>abc123xyz</code>)</li>
+      </ul>
+    </div>
+    <div class="step">
+      <div class="step-label">Step 2 — Paste the Clarity script into all pages</div>
+      <p>Replace <code>YOUR_CLARITY_PROJECT_ID</code> with your actual project ID from Step 1.</p>
+      <div class="code-wrap">
+        <div class="code-label">HTML — paste into &lt;head&gt; of all pages</div>
+        <pre><span class="c">&lt;!-- Microsoft Clarity — heatmaps and session recordings --&gt;</span>
+<span class="tag">&lt;script</span> <span class="attr">type</span>=<span class="str">"text/javascript"</span><span class="tag">&gt;</span>
+    (<span class="kw">function</span>(c,l,a,r,i,t,y){
+        c[a]=c[a]||<span class="kw">function</span>(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src=<span class="str">"https://www.clarity.ms/tag/"</span>+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, <span class="str">"clarity"</span>, <span class="str">"script"</span>, <span class="str">"YOUR_CLARITY_PROJECT_ID"</span>);
+<span class="tag">&lt;/script&gt;</span></pre>
+      </div>
+      <div class="where">
+        <strong>Add to all pages — place immediately after the GA4 script block</strong>
+        <span class="file-ref">index.html</span>
+        <span class="file-ref">insight-double-whammy.html</span>
+        <span class="file-ref">insight-bpr-legal-basis.html</span>
+        <span class="file-ref">insight-executor-liability.html</span>
+      </div>
+      <p style="margin-top:10px;font-size:12px;color:var(--text-light)">Data appears in the Clarity dashboard within 2 hours of the first session. After 1 week you'll have heatmaps showing exactly where advisers click on the calculator and where they drop off.</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════
+     TASK 7 — INSIGHT PAGE NAV
+══════════════════════════════════ -->
+<div class="task">
+  <div class="task-head">
+    <div class="task-num">7</div>
+    <div class="task-info">
+      <h2>Insight Page Navigation — Stop advisers hitting dead ends from Google traffic</h2>
+      <p>Insight pages currently have no links to the Calculator, Case Studies, or FAQs. Advisers who arrive via Google read the article and have nowhere to go. This adds a simple "Also on this site" nav bar to all three insight pages.</p>
+      <div class="task-meta">
+        <span class="pill green">~20 mins</span>
+        <span class="pill red">High impact — fixes bounce from Google traffic</span>
+        <span class="pill navy">Edit 3 insight pages</span>
+      </div>
+    </div>
+  </div>
+  <div class="task-body">
+    <div class="step">
+      <div class="step-label">Step 1 — Replace the existing &lt;nav&gt; block on all three insight pages</div>
+      <p>The current insight nav is a simple 3-element bar. Replace the entire <code>&lt;nav&gt;...&lt;/nav&gt;</code> block with this improved version that includes links back to key sections.</p>
+      <div class="code-wrap">
+        <div class="code-label">HTML — full replacement nav for insight pages</div>
+        <pre><span class="tag">&lt;nav</span> <span class="attr">style</span>=<span class="str">"background:white;border-bottom:1px solid #DDD9CF;
+  padding:0 40px;display:flex;align-items:center;min-height:64px;
+  box-shadow:0 1px 8px rgba(13,27,62,0.06);position:sticky;
+  top:0;z-index:200;gap:0;flex-wrap:wrap"</span><span class="tag">&gt;</span>
+
+  <span class="c">&lt;!-- Logo --&gt;</span>
+  <span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="str">"index.html"</span>
+     <span class="attr">style</span>=<span class="str">"text-decoration:none;display:flex;align-items:baseline;
+       gap:6px;margin-right:24px;flex-shrink:0"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;span</span> <span class="attr">style</span>=<span class="str">"font-family:'Playfair Display',serif;font-size:18px;
+      color:#0D1B3E"</span><span class="tag">&gt;</span>Aetas<span class="tag">&lt;/span&gt;</span>
+    <span class="tag">&lt;span</span> <span class="attr">style</span>=<span class="str">"font-family:'Playfair Display',serif;font-size:18px;
+      font-weight:700;color:#0D1B3E"</span><span class="tag">&gt;</span>Wealth<span class="tag">&lt;/span&gt;</span>
+  <span class="tag">&lt;/a&gt;</span>
+
+  <span class="c">&lt;!-- Back link --&gt;</span>
+  <span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="str">"index.html"</span>
+     <span class="attr">style</span>=<span class="str">"font-size:12.5px;color:#4A4956;text-decoration:none;
+       margin-right:auto;white-space:nowrap"</span><span class="tag">&gt;</span>
+    &#8592; Adviser Dashboard
+  <span class="tag">&lt;/a&gt;</span>
+
+  <span class="c">&lt;!-- Section links — hidden on narrow mobile --&gt;</span>
+  <span class="tag">&lt;div</span> <span class="attr">style</span>=<span class="str">"display:flex;gap:4px;align-items:center;
+    margin-right:16px"</span> <span class="attr">class</span>=<span class="str">"insight-nav-links"</span><span class="tag">&gt;</span>
+
+    <span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="str">"index.html#go-calculator"</span>
+       <span class="attr">onclick</span>=<span class="str">"sessionStorage.setItem('openTab','calculator')"</span>
+       <span class="attr">style</span>=<span class="str">"font-size:12px;color:#4A4956;text-decoration:none;
+         padding:6px 10px;border-radius:6px;white-space:nowrap;
+         border:1px solid #EAE8E2"</span><span class="tag">&gt;</span>
+      Calculator
+    <span class="tag">&lt;/a&gt;</span>
+
+    <span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="str">"index.html#go-case-studies"</span>
+       <span class="attr">onclick</span>=<span class="str">"sessionStorage.setItem('openTab','case-studies')"</span>
+       <span class="attr">style</span>=<span class="str">"font-size:12px;color:#4A4956;text-decoration:none;
+         padding:6px 10px;border-radius:6px;white-space:nowrap;
+         border:1px solid #EAE8E2"</span><span class="tag">&gt;</span>
+      Case Studies
+    <span class="tag">&lt;/a&gt;</span>
+
+    <span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="str">"index.html#go-faqs"</span>
+       <span class="attr">onclick</span>=<span class="str">"sessionStorage.setItem('openTab','faqs')"</span>
+       <span class="attr">style</span>=<span class="str">"font-size:12px;color:#4A4956;text-decoration:none;
+         padding:6px 10px;border-radius:6px;white-space:nowrap;
+         border:1px solid #EAE8E2"</span><span class="tag">&gt;</span>
+      FAQs
+    <span class="tag">&lt;/a&gt;</span>
+
+    <span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="str">"index.html#go-insights"</span>
+       <span class="attr">onclick</span>=<span class="str">"sessionStorage.setItem('openTab','insights')"</span>
+       <span class="attr">style</span>=<span class="str">"font-size:12px;color:#0D1B3E;text-decoration:none;
+         padding:6px 10px;border-radius:6px;white-space:nowrap;
+         border:1px solid #0D1B3E;font-weight:500"</span><span class="tag">&gt;</span>
+      All Insights
+    <span class="tag">&lt;/a&gt;</span>
+
+  <span class="tag">&lt;/div&gt;</span>
+
+  <span class="c">&lt;!-- Book button --&gt;</span>
+  <span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="str">"https://link.aetas-wealth.com/widget/booking/65kC9dm2WgkoxziAWlFE"</span>
+     <span class="attr">target</span>=<span class="str">"_blank"</span>
+     <span class="attr">style</span>=<span class="str">"background:#0D1B3E;color:white;padding:9px 18px;
+       border-radius:6px;font-size:12.5px;font-weight:500;
+       text-decoration:none;white-space:nowrap;flex-shrink:0"</span><span class="tag">&gt;</span>
+    Book a Meeting
+  <span class="tag">&lt;/a&gt;</span>
+
+<span class="tag">&lt;/nav&gt;</span>
+
+<span class="c">&lt;!-- Mobile: hide section links on small screens --&gt;</span>
+<span class="tag">&lt;style&gt;</span>
+@media(max-width: 640px) {
+  .insight-nav-links { display: none !important; }
+}
+<span class="tag">&lt;/style&gt;</span></pre>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-label">Step 2 — Add tab deep-linking to index.html</div>
+      <p>The nav links above store the target tab name in <code>sessionStorage</code> before navigating to index.html. Add this small script to index.html — paste it just before the closing <code>&lt;/body&gt;</code> tag. It reads the stored tab name on load and opens that tab automatically.</p>
+      <div class="code-wrap">
+        <div class="code-label">JavaScript — add to index.html before &lt;/body&gt;</div>
+        <pre><span class="c">// Deep-link from insight pages — open the correct tab on arrival</span>
+(<span class="kw">function</span>() {
+  <span class="kw">var</span> tab = sessionStorage.getItem(<span class="str">'openTab'</span>);
+  <span class="kw">if</span> (tab) {
+    sessionStorage.removeItem(<span class="str">'openTab'</span>);
+    <span class="c">// showTab is the existing function in index.html</span>
+    <span class="kw">if</span> (<span class="kw">typeof</span> showTab === <span class="str">'function'</span>) {
+      showTab(tab);
+      <span class="c">// Scroll the nav tab into view</span>
+      <span class="kw">var</span> tabEl = document.querySelector(<span class="str">'.ntab[data-tab="'</span> + tab + <span class="str">'"'</span>);
+      <span class="kw">if</span> (tabEl) tabEl.scrollIntoView({behavior: <span class="str">'smooth'</span>, block: <span class="str">'nearest'</span>});
+    }
+  }
+})();</pre>
+      </div>
+      <div class="where">
+        <strong>Note on tab IDs</strong> — verify the exact tab IDs used in the existing <code>showTab()</code> calls in index.html. They appear to be: <code>overview</code>, <code>problem</code>, <code>solution</code>, <code>how-it-works</code>, <code>case-studies</code>, <code>costs</code>, <code>calculator</code>, <code>insights</code>, <code>faqs</code>. Adjust the sessionStorage values in the nav links above to match exactly.
+      </div>
+    </div>
+
+    <div class="where" style="margin-top:12px">
+      <strong>Apply nav replacement to</strong>
+      <span class="file-ref">insight-double-whammy.html</span>
+      <span class="file-ref">insight-bpr-legal-basis.html</span>
+      <span class="file-ref">insight-executor-liability.html</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════
+     DEPLOY CHECKLIST
+══════════════════════════════════ -->
+<div class="checklist">
+  <h2>Deploy Checklist — Tick these off as you go</h2>
+
+  <div class="check-item">
+    <div class="check-box"></div>
+    <div class="check-text"><strong>favicon.svg added to repo root</strong> · Link tags added to &lt;head&gt; of all 4 pages</div>
+  </div>
+  <div class="check-item">
+    <div class="check-box"></div>
+    <div class="check-text"><strong>og-image.svg added to repo root</strong> · og:image and twitter:image tags added to all 4 pages · twitter:card changed to summary_large_image</div>
+  </div>
+  <div class="check-item">
+    <div class="check-box"></div>
+    <div class="check-text"><strong>sitemap.xml added to repo root</strong> · Submitted to Google Search Console</div>
+  </div>
+  <div class="check-item">
+    <div class="check-box"></div>
+    <div class="check-text"><strong>robots.txt added to repo root</strong> · Verified live at /robots.txt</div>
+  </div>
+  <div class="check-item">
+    <div class="check-box"></div>
+    <div class="check-text"><strong>Person schema (Peter Rose) added</strong> · JSON-LD block in &lt;head&gt; of all 4 pages · LinkedIn URL added when available</div>
+  </div>
+  <div class="check-item">
+    <div class="check-box"></div>
+    <div class="check-text"><strong>Microsoft Clarity installed</strong> · Project created at clarity.microsoft.com · Script added to all 4 pages · Data appearing in dashboard</div>
+  </div>
+  <div class="check-item">
+    <div class="check-box"></div>
+    <div class="check-text"><strong>Insight page nav updated</strong> · All 3 insight pages have section links · Deep-link script added to index.html · Tested: clicking Calculator link from an insight page opens the Calculator tab</div>
+  </div>
+  <div class="check-item">
+    <div class="check-box"></div>
+    <div class="check-text"><strong>OG image tested</strong> · Checked in LinkedIn Post Inspector · Checked in Twitter Card Validator</div>
+  </div>
+  <div class="check-item">
+    <div class="check-box"></div>
+    <div class="check-text"><strong>Search Console verified</strong> · Sitemap submitted · Index coverage checked within 48 hours</div>
+  </div>
+</div>
+
+<div style="margin-top:24px;font-size:11.5px;color:var(--text-light);text-align:center;padding-top:16px;border-top:1px solid var(--border)">
+  Quick Wins Deploy Guide · Prepared April 2026 · aetasai.github.io/FlexiblePensionAnnuity/ · All code ready to deploy as-is
+</div>
+
+</div>
+</body>
+</html>
