@@ -1,0 +1,17 @@
+{
+  "name": "Aetas Wealth — Pension Legacy Planning",
+  "short_name": "Aetas Wealth",
+  "description": "FPA adviser dashboard — pension IHT planning under Finance Act 2026",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#0D1B3E",
+  "theme_color": "#0D1B3E",
+  "lang": "en-GB",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
